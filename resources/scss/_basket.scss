@@ -1,0 +1,309 @@
+.basket-item-container-right {
+    display: flex;
+
+    .qty-btn-container {
+        display: flex !important;
+        flex-direction: row !important;
+
+        button {
+            padding: 10px 10px !important;
+            border-radius: 10px;
+            height: 35px !important;
+            margin-right: 5px;
+        }
+
+
+        input {
+            width: 60px !important;
+            height: 35px !important;
+            margin-right: 5px;
+            border-radius: 10px;
+            border-right: 1px solid #CED4DA;
+        }
+    }
+
+    .basket-list-item .meta-container {
+        width: 73%;
+    }
+
+    .price-box {
+        margin-left: 9.5rem !important;
+
+        button {
+            font-size: 1.5rem;
+            line-height: 10px;
+        }
+    }
+
+
+}
+
+.meta-container-wrapper .item-name {
+    max-width: 230px !important;
+    width: 230px !important;
+    display: flex;
+    color: #000 !important;
+    padding-right: 1rem;
+
+    &:hover {
+        color: #000 !important;
+    }
+}
+
+.meta-container-wrapper .item-total-price {
+    padding-right: 1rem;
+}
+
+
+@media (min-width: 992px) {
+    .basket-preview-wrapper {
+        left: auto;
+        width: 37rem;
+    }
+}
+
+
+.basket-preview-content .totals {
+    background-color: #fff !important;
+
+    dd {
+        float: right !important;
+        margin-bottom: 0 !important;
+    }
+}
+
+.basket-preview-footer {
+    a {
+        border-radius: 35px;
+
+        &.btn-outline-primary {
+            border: 1px solid #000;
+            color: #000;
+        }
+    }
+}
+
+
+/* ===== Basket page ==== */
+.page-content.basket {
+    background: url('https://cdn02.plentymarkets.com/ocqgl0v083vy/frontend/website_relaunch/Gradient.png');
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    height: 100vh;
+    color: #fff;
+    padding-top: 230px !important;
+
+    >div,
+    hr {
+        max-width: 1200px;
+        display: flex;
+        margin: 0 auto;
+
+        .col-md-12 {
+            height: 120%;
+            min-height: 120%;
+            margin-bottom: 40px !important;
+
+            .h5.py-3 {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                h1 {
+                    font-size: 2.4rem;
+                }
+
+                h1~img {
+                    width: 250px;
+                    margin: 50px 0;
+                }
+
+                p {
+                    font-size: 1.4rem;
+                }
+
+                a {
+                    padding: 15px 30px;
+                    background: #F7883F;
+                    color: #fff;
+                    border-radius: 35px;
+                    margin-top: 30px;
+                }
+            }
+        }
+    }
+
+    .sum-container-basket {
+        border: 1px solid #fff;
+
+        &>div {
+            &>.h3 {
+                font-size: 1rem !important;
+            }
+
+            select {
+                background: transparent;
+                border: 1px solid #fff;
+                border-radius: 10px;
+                color: #fff;
+                margin-bottom: 20px;
+            }
+
+            input {
+                background: transparent;
+                border: 1px solid #fff;
+                color: #fff;
+                border-radius: 10px;
+                margin-right: 20px;
+                margin-bottom: 20px;
+            }
+
+            .input-group-btn {
+                button {
+                    background: #fff;
+                    color: #000;
+                    border-radius: 10px;
+                    border: 1px solid #fff;
+                }
+            }
+        }
+    }
+
+    .button-kasse {
+        border-radius: 35px;
+        background: #F7883F;
+        color: #fff;
+        max-width: 200px;
+    }
+}
+
+
+@media (max-width: 800px) {
+    .page-content.basket {
+        padding: 100px 0 !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+
+}
+
+
+.basket-preview-content {
+    .h5.py-3 {
+        img {
+            width: 200px;
+            display: none;
+        }
+
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        min-height: 50vh;
+        ;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+
+        a {
+            padding: 15px 30px;
+            background: #F7883F;
+            color: #fff;
+            border-radius: 35px;
+            margin-top: 30px;
+            max-width: 200px;
+            text-align: center;
+        }
+    }
+}
+
+
+
+/*basket changes*/
+#page-body>.basket {
+    height: 100%;
+
+    .h5.py-3 {
+        img {
+            width: 150px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    }
+
+    >.row {
+        &:first-child {
+            .col-12 {
+                max-width: 58%;
+
+                &::after {
+                    content: '';
+                    display: block;
+                    width: 100%;
+                    height: 2px;
+                    background: #707070;
+                }
+            }
+        }
+
+        h1.h2 {
+            text-transform: uppercase;
+        }
+
+
+        .basket-list-item .meta-container {
+            a {
+                color: #fff !important;
+            }
+        }
+
+        .price-box {
+            button {
+                color: #fff !important;
+            }
+        }
+
+        label.btn-collapse {
+            &::after {
+                background: #fff !important;
+                font-size: 0.9rem;
+                color: #000;
+                border-radius: 5px;
+                padding: 0 10px;
+            }
+
+            &::before {
+                border-bottom: 1px solid #707070;
+            }
+        }
+    }
+
+    >hr {
+        max-width: 50%;
+        display: none;
+
+    }
+
+
+    .sum-container-basket {
+        transform: translatey(-50px);
+        border: 1px solid #707070;
+    }
+
+
+    .component-loading.with-icon {
+        dt {
+            padding: 10px;
+        }
+
+        dd {
+            float: right;
+            padding: 6px;
+            transform: translatey(4px);
+        }
+
+        hr {
+            border-top: 1px solid #707070 !important;
+        }
+    }
+}

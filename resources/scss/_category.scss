@@ -1,0 +1,276 @@
+.categoriegrid {
+    margin-bottom: 0 !important;
+    padding-bottom: 120px !important;
+    height: 100vh;
+    color: #fff;
+    background-repeat: none;
+    background-size: cover;
+    height: 100%;
+    position: relative;
+
+    .thumb-image {
+        background: #fff;
+        border-radius: 0.5rem;
+    }
+
+    .thumb-title.small {
+        display: block;
+        overflow: hidden;
+        max-height: 48px;
+        min-height: 48px;
+        width: 100%;
+    }
+
+    .list-controls {
+        .float-right {
+            width: 100%;
+        }
+
+        nav {
+            width: 100%;
+
+            .pagination {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                max-height: 42px;
+                margin-top: 70px;
+
+                li {
+                    margin: 0 12px;
+
+
+                    a {
+                        background-color: transparent !important;
+                        border: none;
+                        color: #fff !important;
+                        font-size: 1rem;
+                        font-weight: normal;
+                    }
+
+                    &:first-child,
+                    &:last-child {
+                        font-weight: normal;
+
+                        a {
+                            line-height: 32px;
+                            font-size: 2.3rem !important;
+
+                            margin-top: -2px;
+
+                        }
+                    }
+
+                    &.active {
+                        background: #707070;
+                    }
+
+                    &.disabled {
+                        a {
+                            color: #666060 !important;
+
+                        }
+                    }
+
+
+                }
+            }
+        }
+    }
+
+    .category-list-view-port {
+        >div {
+            >div {
+                .btn-group {
+                    margin-top: 20px;
+                    width: 100%;
+                }
+
+                button {
+                    display: flex;
+                    flex-direction: row-reverse;
+                    justify-content: center;
+                    width: 100%;
+                    border-radius: 35px;
+                    padding: 12px 20px;
+                    background-color: #8AB536 !important;
+                    background: #8AB536 !important;
+                    border: none !important;
+
+                    &:hover,
+                    &:active,
+                    &:active {
+                        background-color: #8AB536;
+                        background: #8AB536 !important;
+                        border: none !important;
+                        box-shadow: none !important;
+                    }
+
+                    &.basket {
+                        flex-direction: row;
+                        padding-left: 50px;
+
+                    }
+
+                    i {
+                        float: none !important;
+                        padding-left: 10px;
+                        line-height: 15px;
+                    }
+
+                    img {
+                        width: 23px;
+                        position: absolute;
+                        left: 60px;
+                        top: 8px;
+                    }
+                }
+            }
+        }
+    }
+
+    .wishlist {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        color: #757575;
+        align-items: center;
+
+        i {
+            font-size: 1.25rem;
+            margin-top: 3px;
+            color: #757575 !important;
+
+            &.added {
+                color: #F7883F !important;
+            }
+        }
+
+        span {
+            display: none;
+        }
+
+    }
+
+    .category-list-view-port {
+        >div>.d-lg-none {
+            display: block !important;
+        }
+    }
+
+    article {
+        background-color: transparent !important;
+
+        .thumb-content {
+            background-color: transparent !important;
+            padding: 0.8rem 0 !important;
+
+            &>a {
+                font-size: 1rem;
+                margin-bottom: 13px;
+            }
+
+            .price {
+                color: #fff;
+                font-size: 1rem;
+            }
+
+            a {
+                color: #fff;
+
+            }
+        }
+
+        .special-tags {
+            display: none;
+        }
+    }
+
+    .list-controls-inner.p-2 {
+        background: transparent;
+        float: right;
+        width: 100%;
+        padding-right: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+
+        .itemCount {
+            height: 100%;
+
+            span {
+                color: #fff !important;
+                display: flex;
+                align-items: center;
+                height: 100%;
+            }
+        }
+
+        .list-sort {
+            padding-right: 0 !important;
+
+            select {
+                background: transparent url("https://cdn02.plentymarkets.com/ocqgl0v083vy/frontend/website_relaunch/icons/chevrons-up-down-svgrepo-com__1_.svg") no-repeat right 0 center/15px 10px !important;
+                color: #fff;
+                background-size: 15px !important;
+
+                option {
+                    color: #000;
+                }
+            }
+        }
+
+        .row {
+            padding-right: 0 !important;
+            margin-right: 0 !important;
+            margin-left: 0 !important;
+            padding-left: 0 !important;
+
+            .col-6 {
+                padding-right: 0 !important;
+                margin-right: 0 !important;
+                margin-left: 0 !important;
+                padding-left: 0 !important;
+
+                &:last-child {
+                    display: flex;
+                    justify-content: flex-end;
+
+                    .list-itemsperpage {
+                        padding-right: 0 !important;
+
+                        select {
+                            background: transparent url("https://cdn02.plentymarkets.com/ocqgl0v083vy/frontend/website_relaunch/icons/chevrons-up-down-svgrepo-com__1_.svg") no-repeat right 0 center/15px 10px !important;
+                            color: #fff;
+                            background-size: 15px !important;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+}
+
+.main {
+    &>.parallax-img-container {
+        display: none;
+    }
+
+    .sidebar-categories {
+        display: none;
+    }
+}

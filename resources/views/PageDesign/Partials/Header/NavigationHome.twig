@@ -1,0 +1,25 @@
+{% import "maversandVuePlugin::Category.Macros.CategoryTree" as Tree %}
+<nav>
+    <div id="navigation" class="w-100 home-nav">
+        <div class="menu-open expanded shrinked">
+            <div class="container-max px-0">
+                <div class="row">
+                    <div class="position-relative col-12">
+                        <ul class="menu-content list-unstyled mb-0 d-none d-lg-block">
+                            {{ Tree.get_nav_bar( categories, "", ceresConfig.header.megamenuLevels, { "1": ceresConfig.header.megamenuItemsStage1, "2": ceresConfig.header.megamenuItemsStage2, "3": ceresConfig.header.megamenuItemsStage3 } ) }}
+                        </ul>
+                        <div class="menu-info">
+                            <div id="menu-info-outer">
+                                <div data="122">
+                                	<span id="mi-title" class="h4 d-block mb-3"></span>
+                                	<span id="mi-description"></span>
+                                </div>
+                            </div>
+                        </div>
+                        {% include "maversandVuePlugin::Homepage.HomepageSlider" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

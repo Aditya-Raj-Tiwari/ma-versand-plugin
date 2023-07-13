@@ -1,0 +1,416 @@
+.impressum-page {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    height: 100vh;
+    color: #fff;
+
+    >.widget-inner {
+        max-width: 1200px !important;
+        display: flex;
+        margin: 0 auto;
+        flex-direction: column;
+
+        .header.impressum {
+            .widget-inner {
+                padding: 0 !important;
+                font-size: 1.7rem;
+                text-transform: uppercase;
+                margin-bottom: 15px;
+                color: #8AB536;
+            }
+        }
+
+        a {
+            color: #fff !important;
+        }
+    }
+
+    .widget-legal-text {
+        width: 100%;
+    }
+}
+
+.datenschutzerklaerung-page {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    height: 100% !important;
+    color: #fff;
+
+    >.widget-inner {
+        max-width: 1200px !important;
+        display: flex;
+        margin: 0 auto;
+        flex-direction: column;
+
+        .header.impressum {
+            .widget-inner {
+                padding: 0 !important;
+                font-size: 1.7rem;
+                text-transform: uppercase;
+                margin-bottom: 15px;
+                color: #8AB536;
+            }
+        }
+
+        a {
+            color: #fff !important;
+        }
+
+        .widget-legal-text {
+            width: 100%;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .datenschutzerklaerung-page,
+    .impressum-page {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        padding: 0 20px;
+
+    }
+
+    .impressum-page {
+        height: 100%;
+    }
+
+    #page-header,
+    #page-header .navbar {
+        background: transparent !important;
+    }
+}
+
+
+
+@media (max-width: 767px) {
+    body #vue-app {
+        margin-top: 0 !important;
+    }
+}
+
+/* ========== LOGIN AND REGISTRATION PAGE ========== */
+.register-container {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    height: 100% !important;
+    color: #fff;
+
+    select~label {
+        display: none;
+    }
+
+    select {
+        border-radius: 35px;
+        height: 40px;
+        padding: 0 !important;
+        padding-left: 20px !important;
+
+    }
+
+    hr {
+        display: none !important;
+    }
+
+    form {
+        >.mt-2 {
+            text-align: center !important;
+            margin-bottom: 50px;
+
+            button {
+                padding: 10px 60px;
+                border-radius: 35px;
+            }
+        }
+
+        .input-unit {
+            >div {
+                width: 100%;
+            }
+        }
+    }
+
+    .header {
+        >div {
+            padding-left: 0 !important;
+            margin-left: 0 !important;
+            margin-bottom: 20px;
+
+            &::after {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 1px;
+                background-color: rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        p {
+            font-size: 1.5rem !important;
+        }
+    }
+
+    >.widget-inner {
+        max-width: 1200px;
+        display: flex;
+        margin: 0 auto;
+        flex-direction: column;
+
+        input[autocomplete="new-password"] {
+            flex-grow: 1;
+        }
+
+        .input-unit {
+            border: none !important;
+            background: transparent !important;
+            display: flex;
+            align-items: center;
+            align-content: center;
+
+            &::active,
+            &::target,
+            &::focus {
+                label {
+                    display: none !important;
+                }
+            }
+
+            input {
+                border-radius: 35px;
+                outline: none !important;
+                background: transparent !important;
+                border: 1px solid #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #fff;
+                line-height: 10px !important;
+                padding: 10px;
+
+            }
+
+            label {
+                font-size: 1.4rem;
+                line-height: 30px !important;
+                margin-left: 10px;
+            }
+        }
+
+        .input-unit:focus-within label {
+            display: none;
+        }
+
+    }
+}
+
+.login-contianer {
+    background: url('https://cdn02.plentymarkets.com/ocqgl0v083vy/frontend/website_relaunch/Gradient.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 0 !important;
+    height: 100% !important;
+    color: #fff;
+    padding: 250px 0;
+    margin-bottom: 20px !important;
+
+    >.widget-inner {
+        max-width: 1000px;
+        display: flex;
+        margin: 0 auto;
+        flex-direction: column;
+    }
+
+    .andelden-text {
+        >div {
+            margin-left: 0 !important;
+            padding-left: 0 !important;
+        }
+
+        p {
+            font-size: 1.78rem;
+            margin-left: 0 !important;
+            padding-left: 0 !important;
+            margin-bottom: 20px;
+        }
+    }
+
+    .new-account-make-container {
+        background: #414141;
+        min-height: 400px;
+        display: flex;
+        justify-content: flex-start;
+        padding: 0 40px;
+        align-content: center;
+        align-items: center;
+        border-radius: 10px;
+
+        .header {
+            font-size: 1.75rem;
+            margin-bottom: 30px !important;
+        }
+
+        a {
+            background: #F7883F;
+            color: #fff;
+            padding: 15px 50px;
+            border-radius: 35px;
+
+            &:hover {
+                background: #f16c13;
+            }
+        }
+
+        ul {
+            margin-top: 30px;
+            padding-left: 0 !important;
+
+            li {
+                padding-left: 20px;
+                list-style: none;
+
+                &::before {
+                    content: '•';
+                    margin-right: 10px; // Set the space between the dot and the text
+                    color: #fff; // Set the color of the dot
+                }
+            }
+        }
+
+    }
+
+    .widget.widget-grid.widget-two-col.row>.col-xl-6 {
+        &:last-child {
+            .widget-inner {
+                padding-left: 0 !important;
+                padding-top: 0 !important;
+
+                p {
+                    font-size: 1.5rem;
+                }
+            }
+
+            form {
+                &>.row {
+                    flex-direction: column !important;
+
+                    .col-5 {
+                        text-align: left !important;
+                        width: 350px !important;
+                        min-width: 350px !important;
+
+                        button {
+                            width: 100% !important;
+                            border-radius: 35px;
+                            background: #8AB536;
+                            border: 1px solid #8AB536;
+                            margin-top: 5px;
+
+                        }
+                    }
+
+                    .col-7 {
+                        a {
+                            color: rgba(255, 255, 255, 0.7) !important;
+                            font-size: 1rem !important;
+                            text-decoration: underline;
+                        }
+
+                        margin-bottom: 10px !important;
+
+                    }
+                }
+
+                &>.text-right {
+                    text-align: left !important;
+
+                    button {
+                        width: 320px !important;
+                        border-radius: 35px;
+                        background: #8AB536;
+                        border: 1px solid #8AB536;
+                        margin-top: 5px;
+
+                    }
+                }
+            }
+        }
+
+        .input-unit {
+            border: none !important;
+            background: transparent !important;
+            display: flex;
+            align-items: center;
+            align-content: center;
+
+            &::active,
+            &::target,
+            &::focus {
+                label {
+                    display: none !important;
+                }
+            }
+
+            input {
+                border-radius: 35px;
+                outline: none !important;
+                background: transparent !important;
+                border: 1px solid #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #fff;
+                line-height: 15px !important;
+                padding: 15px;
+
+            }
+
+            label {
+                font-size: 1rem;
+                line-height: 35px !important;
+                margin-left: 10px;
+                text-transform: capitalize;
+            }
+        }
+
+        .input-unit:focus-within label {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .login-contianer {
+        padding: 100px 0 !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+
+        .andelden-text {
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 0;
+
+        }
+
+        .new-account-make-container {
+            min-height: 140px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+    }
+
+    .register-container {
+        padding: 150px 0 !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+}

@@ -1,0 +1,117 @@
+{% set companyLogo  = config("Ceres.header.company_logo") %}
+{% set showHeaderNavBar = config("Ceres.header.show_navbars") %}
+{% set companyName  = trans("Ceres::Template.headerCompanyName") %}
+{% set useMegaMenu  = config("Ceres.header.megamenu_levels") > 1 %}
+
+<nav class="navbar header-fw p-0 {% if useMegaMenu %} megamenu{% else %} normalmenu{% endif %}">
+	<div class="container-max d-block">
+		<div class="row mx-0 position-relative d-flex header-body">
+			<div class="brand-wrapper m-0 p-0{% if showHeaderNavBar == " side" %} position-relative{% endif %}">
+				<a class="navbar-brand m-0 p-0" href="{{ homepageURL }}">
+					<img alt="{{ companyName }}" src="https://cdn02.plentymarkets.com/ocqgl0v083vy/frontend/images/ma_versand_logo_svg.svg"/>
+				</a>
+			</div>
+			{% if not services.template.isCheckout() %}
+				<div class="search-outer d-none d-md-none d-lg-block">
+					{% if overrideSearchBar | trim is empty %}
+						<item-search></item-search>
+					{% else %}
+						{{ overrideSearchBar | raw }}
+					{% endif %}
+				</div>
+				<div class="actions-outer">
+					<div class="actions d-flex">
+						<a href="{% if services.authentication.isLoggedIn() %}{% if userObject.id | length > 0 %}/my-account?personaldata{% else %}/checkout{% endif %}{% else %}/login{% endif %}" id="loginbtn" class="position-relative text-center">
+							<button class="p-0" style="border: 0; background: transparent;">
+								<img src="https://cdn02.plentymarkets.com/ocqgl0v083vy/frontend/images/ma_versand_account.svg" width="28" height="28" alt="">
+							</button>
+							<span class="text-nowrap">
+								{% if services.authentication.isLoggedIn() %}
+									<div v-cloak v-if="$store.state.user.userData && $store.state.user.userData.id > 0">
+										Mein Konto
+									</div>
+									<div v-else>
+										Gast
+									</div>
+								{% else %}
+									Anmelden
+								{% endif %}
+							</span>
+						</a>
+						<a href="/wish-list" id="wishlistbtn" class="position-relative text-center">
+							<button class="p-0" style="border: 0; background: transparent;">
+								<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewbox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1" stroke-linecap="square" stroke-linejoin="round">
+									<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+								</svg>
+								<wish-list-count>
+									<span class="badge-right">0</span>
+								</wish-list-count>
+							</button>
+							<span>Merkliste</span>
+						</a>
+						<a href="javascript:void(0)" id="cartbtn" class="position-relative text-center" @mouseover.once="$store.dispatch('loadComponent', 'basket-preview')" v-toggle-basket-preview>
+							<button class="p-0" style="border: 0; background: transparent;">
+								<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewbox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="square" stroke-linejoin="round"><path d="M6 2L3 6v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V6l-3-4H6zM3.8 6h16.4M16 10a4 4 0 1 1-8 0"/></svg>
+								{% if config("Ceres.header.basket_values") != "sum" %}
+									<span class="badge-right" v-basket-item-quantity="$store.state.basket.data.itemQuantity">0</span>
+								{% endif %}
+							</button>
+							<span>Warenkorb</span>
+						</a>
+					</div>
+				</div>
+			{% else %}
+				<a href="{{ homepageURL }}" class="position-absolute btn btn-outline-light py-2 btn-lg" style="right: 0; padding-left: 45px">
+					<svg xmlns="http://www.w3.org/2000/svg" class="position-absolute" style="top: 50%; left: 10px; -webkit-transform: translateY(calc(-50% + 1px)); transform: translateY(calc(-50% + 1px))" width="25" height="25" viewbox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"><path d="M15 3h6v18h-6M10 17l5-5-5-5M13.8 12H3"/></svg>
+					Checkout verlassen</a>
+			{% endif %}
+		</div>
+	</div>
+
+</nav>
+<lazy-load component="basket-preview">
+	<basket-preview :show-net-prices="{{ showNetPrices | json_encode }}">
+		<template #before-basket-item>
+			{{ LayoutContainer.show("Ceres::BasketList.BeforeItem") }}
+		</template>
+		<template #after-basket-item>
+			{{ LayoutContainer.show("Ceres::BasketList.AfterItem") }}
+		</template>
+		<template #before-basket-totals>
+			{{ LayoutContainer.show("Ceres::BasketPreview.BeforeBasketTotals") }}
+		</template>
+		<template #before-item-sum>
+			{{ LayoutContainer.show("Ceres::BasketTotals.BeforeItemSum") }}
+		</template>
+		<template #after-item-sum>
+			{{ LayoutContainer.show("Ceres::BasketTotals.AfterItemSum") }}
+		</template>
+		<template #before-shipping-costs>
+			{{ LayoutContainer.show("Ceres::BasketTotals.BeforeShippingCosts") }}
+		</template>
+		<template #after-shipping-costs>
+			{{ LayoutContainer.show("Ceres::BasketTotals.AfterShippingCosts") }}
+		</template>
+		<template #before-total-sum>
+			{{ LayoutContainer.show("Ceres::BasketTotals.BeforeTotalSum") }}
+		</template>
+		<template #before-vat>
+			{{ LayoutContainer.show("Ceres::BasketTotals.BeforeVat") }}
+		</template>
+		<template #after-vat>
+			{{ LayoutContainer.show("Ceres::BasketTotals.AfterVat") }}
+		</template>
+		<template #after-total-sum>
+			{{ LayoutContainer.show("Ceres::BasketTotals.AfterTotalSum") }}
+		</template>
+		<template #after-basket-totals>
+			{{ LayoutContainer.show("Ceres::BasketPreview.AfterBasketTotals") }}
+		</template>
+		<template #before-checkout-button>
+			{{ LayoutContainer.show("Ceres::BasketPreview.BeforeCheckoutButton") }}
+		</template>
+		<template #after-checkout-button>
+			{{ LayoutContainer.show("Ceres::BasketPreview.AfterCheckoutButton") }}
+		</template>
+	</basket-preview>
+</lazy-load>

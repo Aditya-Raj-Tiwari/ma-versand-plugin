@@ -1,0 +1,19 @@
+.homepage-carousel {
+
+    .owl-item>div {
+        cursor: pointer;
+        margin: 6% 8%;
+        -webkit-transition: margin 0.4s ease;
+        transition: margin 0.4s ease;
+    }
+
+    .owl-item.center>div {
+        cursor: auto;
+        margin: 0;
+    }
+
+    .owl-item:not(.center)>div:hover {
+        opacity: .75;
+    }
+
+}

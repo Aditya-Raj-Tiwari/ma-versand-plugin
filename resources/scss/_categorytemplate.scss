@@ -1,0 +1,60 @@
+.faq-page-second.category-template {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    height: 100%;
+    color: #fff;
+
+    .half {
+        max-width: 1200px;
+        display: flex;
+        margin: 0 auto;
+    }
+
+    .first-section {
+        text-align: center;
+        min-height: 30vh;
+
+        h1 {
+            color: #8AB536;
+            margin-bottom: 20px;
+            font-size: 2.4rem;
+        }
+
+        p {
+            color: #fff;
+            margin-bottom: 80px;
+        }
+    }
+
+    .second-section {
+        min-height: 40vh;
+        background-repeat: none;
+        background-size: cover;
+
+        .ersatzteilsuche {
+            max-width: 1200px;
+            display: flex;
+            margin: 0 auto;
+            padding: 40px 0;
+
+            h5 {
+                font-size: 2.4rem;
+            }
+        }
+
+    }
+
+    #accordion {
+        height: 100%;
+        margin-bottom: 0 !important;
+
+
+        .card h5 button {
+            background-color: #444;
+
+            &.collapsed {
+                background-color: transparent;
+            }
+        }
+    }
+}

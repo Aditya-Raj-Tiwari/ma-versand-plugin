@@ -1,0 +1,27 @@
+{
+    "name": "maversandVuePlugin",
+    "description": "",
+    "namespace": "maversandVuePlugin",
+    "type": "theme",
+    "version": "1.0.0",
+    "license": "AGPL-3.0",
+    "isClosedSource": "true",
+    "author": "Webimpact",
+    "email": [
+        ""
+    ],
+    "phone": "",
+    "keywords": [
+        "theme",
+        "vue",
+        "template"
+    ],
+    "serviceProvider": "maversandVuePlugin\\Providers\\maversandVuePluginServiceProvider",
+    "dataProviders": [
+        {
+            "key": "maversandVuePlugin\\Containers\\maversandVuePluginContainer",
+            "name": "maversandVuePlugin CSS",
+            "description": ""
+        }
+    ]
+}

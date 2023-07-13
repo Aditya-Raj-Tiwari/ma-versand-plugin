@@ -1,0 +1,159 @@
+.basket-container-single-item {
+    .quantity-input-container {
+        background: none !important;
+    }
+
+    .qty-box {
+        >div {
+            display: -webkit-box !important;
+            display: -ms-flexbox !important;
+            display: flex !important;
+            -webkit-box-orient: horizontal !important;
+            -webkit-box-direction: normal !important;
+                -ms-flex-direction: row !important;
+                    flex-direction: row !important;
+            background: transparent !important;
+            -webkit-box-pack: start;
+                -ms-flex-pack: start;
+                    justify-content: flex-start;
+            width: 100%;
+            height: 100%;
+            -ms-flex-line-pack: start;
+                align-content: flex-start;
+            -webkit-box-align: start;
+                -ms-flex-align: start;
+                    align-items: flex-start;
+
+            input {
+                margin: 0 10px;
+                border-right: 1px solid #fff;
+            }
+
+            button {
+                width: 40px !important;
+                height: 40px;
+                display: -webkit-box !important;
+                display: -ms-flexbox !important;
+                display: flex !important;
+                -webkit-box-pack: center;
+                    -ms-flex-pack: center;
+                        justify-content: center;
+                -webkit-box-align: center;
+                    -ms-flex-align: center;
+                        align-items: center;
+                margin-top: 0 !important;
+                border-radius: 15px !important;
+
+                i {
+                    margin-right: 0 !important;
+                }
+            }
+        }
+    }
+}
+
+
+.single-carousel {
+    img {
+        width: 100%;
+        height: 100%;
+        background: #fff;
+    }
+}
+
+.cross-selling {
+    background-color: transparent !important;
+
+    .swiper-slide {
+        background-color: transparent !important;
+    }
+
+    article {
+        padding-bottom: 30px !important;
+        margin-bottom: 0 !important;
+        background-color: transparent !important;
+        max-width: 400px;
+    }
+
+    .thumb-image {
+        width: 400px;
+    }
+}
+
+
+.single-carousel {
+    img {
+        width: 100%;
+        height: 100%;
+        background: #fff;
+    }
+}
+
+.cross-selling.categoriegrid {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    background: transparent;
+
+
+    .thumb-image {
+        width: 100%;
+
+        img {
+            width: 100% !important;
+        }
+    }
+
+    .wishlist {
+        -webkit-box-shadow: 0 2px 15px 0 rgba(0, 0, 0, .25);
+                box-shadow: 0 2px 15px 0 rgba(0, 0, 0, .25);
+
+        button {
+            border: none !important;
+            display: -webkit-box !important;
+            display: -ms-flexbox !important;
+            display: flex !important;
+            -webkit-box-pack: center !important;
+                -ms-flex-pack: center !important;
+                    justify-content: center !important;
+            -ms-flex-line-pack: center;
+                align-content: center;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+
+            &:hover {
+                padding: 19px !important;
+                height: 100%;
+            }
+
+            i {
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+        }
+    }
+}
+
+
+.cross-selling {
+    position: relative;
+
+    p.h3 {
+        position: absolute;
+        top: 3px;
+        left: 50%;
+        -webkit-transform: translate(-50%);
+                transform: translate(-50%);
+        text-transform: uppercase;
+        z-index: 9;
+        background: -webkit-gradient(linear, left top, right top, from(#2c2c2c), to(#212121));
+        background: linear-gradient(to right, #2c2c2c, #212121);
+        padding: 0 16px;
+    }
+
+    >.col-12 {
+        &:first-child {
+            padding-bottom: 40px;
+        }
+    }
+}

@@ -1,0 +1,52 @@
+{% import "maversandVuePlugin::Category.Macros.CategoryTree" as Tree %}
+<nav>
+	<div id="navigation" class="w-100 pb-0 pb-sm-0 pb-md-0 pb-lg-4 pt-0 pt-sm-0 pt-md-3">
+		<div class="menu">
+			<div class="container-max">
+				<div class="d-flex mx-0">
+					<button class="pt-3 pr-3 pb-3 d-block d-lg-none bg-white" id="nav-mobile" v-open-mobile-navigation>
+						<div></div>
+					</button>
+					<div id="adv" class="d-flex justify-content-end py-0">
+						<div id="search-mobile" class="search-mobile d-block d-lg-none h-100">
+							{% if overrideSearchBar | trim is empty %}
+								<item-search></item-search>
+							{% else %}
+								{{ overrideSearchBar | raw }}
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-max d-none d-md-none d-lg-block">
+			<ul class="menu-list list-unstyled d-flex justify-content-between mb-0">
+				<li class="active">
+					<a href="#">Startseite</a>
+				</li>
+				<li>
+					<a href="#">Kategorien</a>
+				</li>
+				<li>
+					<a href="#">Rasentraktor</a>
+				</li>
+				<li>
+					<a href="#">Rasenmäher</a>
+				</li>
+				<li>
+					<a href="#">Holzspalter</a>
+				</li>
+				<li>
+					<a href="#">Sägeketten</a>
+				</li>
+				<li>
+					<a href="#">Alle Geräte</a>
+				</li>
+				<li>
+					<a href="#">Zubehör</a>
+				</li>
+				{# Tree.get_nav_bar( categories, "", ceresConfig.header.megamenuLevels, { "1": ceresConfig.header.megamenuItemsStage1, "2": ceresConfig.header.megamenuItemsStage2, "3": ceresConfig.header.megamenuItemsStage3 } ) #}
+			</ul>
+		</div>
+	</div>
+</nav>

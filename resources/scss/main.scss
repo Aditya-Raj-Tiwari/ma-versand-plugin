@@ -1,0 +1,36 @@
+@import "./header";
+@import "./singleitem";
+@import "./home";
+@import "./carousel";
+@import ".././../node_modules/swiper/dist/css/swiper.css";
+@import "./otherpage.scss";
+@import "./basket";
+@import "./category";
+@import "./newsletterpopup";
+@import "./categorytemplate";
+@import "./cross-selling";
+@import "./mobile";
+@import "./preview.css";
+
+
+body {
+    background: rgba(14, 14, 14, 1);
+}
+
+#page-body {
+    background: rgba(14, 14, 14, 1);
+    background: linear-gradient(137deg, rgba(60, 60, 59, 1) 0%, rgba(14, 14, 14, 1) 100%);
+    background-attachment: fixed;
+}
+
+#page-body,
+p>a,
+span>a {
+    color: #FFF;
+}
+
+@media(min-width: 991px) {
+    #page-body {
+        padding-top: 200px;
+    }
+}
