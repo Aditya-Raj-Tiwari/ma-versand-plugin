@@ -27,10 +27,10 @@
 							<h1>JOIN THE TEAM</h1>
 							<p>
 								Wir packen Dinge gemeinsam an, schenken unseren Mitarbeitern Freiraum
-																																																																																																																																																																																																																			        und Vertrauen, leben Proaktivität und treten als Team auf.  Wenn Du dich
-																																																																																																																																																																																																																			        in einem familiären Umfeld wohlfühlst, für Garten und E-Commerce
-																																																																																																																																																																																																																			        interessierst, dann geh den nächsten Schritt: Schick uns Deine Bewerbung
-																																																																																																																																																																																																																			        und lerne uns kennen. Wir freuen uns auf Dich!
+																																																																																																																																																																																																																																																											        und Vertrauen, leben Proaktivität und treten als Team auf.  Wenn Du dich
+																																																																																																																																																																																																																																																											        in einem familiären Umfeld wohlfühlst, für Garten und E-Commerce
+																																																																																																																																																																																																																																																											        interessierst, dann geh den nächsten Schritt: Schick uns Deine Bewerbung
+																																																																																																																																																																																																																																																											        und lerne uns kennen. Wir freuen uns auf Dich!
 							</p>
 							<a href="/ueber-uns">
 								<button class="btn btn-primary">Lerne über uns</button>
@@ -137,39 +137,20 @@
 							{% if itemList is not empty %}
 								<ul class="{% if category.id == 67611 %}list-unstyled {% else %}product-list {% endif %} row grid">
 									{% for item in itemList %}
-										{% if category.id != 67611 %}
 
-											<li class="col-12 col-sm-6 col-md-4 col-lg-{% if category is defined and ceresConfig.header.showNavBars in [" side", " both"] %}4{% else %}3{% endif %}">
-												<category-item :decimal-count="{{ ceresConfig.item.storeSpecial }}" {% if category.id == 67611 %} template-override="#vue-category-job" {% endif %}>
-													<template #before-prices>{{ LayoutContainer.show("Ceres::CategoryItem.BeforePrices", item.data) }}</template>
-													<template #after-prices>{{ LayoutContainer.show("Ceres::CategoryItem.AfterPrices", item.data) }}</template>
-													<template #item-data>{{ item.data | json_encode }}</template>
+										<li class="col-12 col-sm-6 col-md-4 col-lg-{% if category is defined and ceresConfig.header.showNavBars in [" side", " both"] %}4{% else %}3{% endif %}">
+											<category-item :decimal-count="{{ ceresConfig.item.storeSpecial }}" {% if category.id == 67611 %} template-override="#vue-category-job" {% endif %}>
+												<template #before-prices>{{ LayoutContainer.show("Ceres::CategoryItem.BeforePrices", item.data) }}</template>
+												<template #after-prices>{{ LayoutContainer.show("Ceres::CategoryItem.AfterPrices", item.data) }}</template>
+												<template #item-data>{{ item.data | json_encode }}</template>
 
-													<a href="{{ item.data | itemURL }}" class="small">
-														<i class="fa fa-image"></i>
-														<span>{{ item.data | itemName }}</span>
-													</a>
-												</category-item>
-											</li>
-										{% endif %}
-										{% if category.id == 67611 %}
-											<li class="category-job col-12">
-												{% if category.id == 67611 %}
+												<a href="{{ item.data | itemURL }}" class="small">
+													<i class="fa fa-image"></i>
+													<span>{{ item.data | itemName }}</span>
+												</a>
+											</category-item>
+										</li>
 
-													<category-jobs :decimal-count="{{ ceresConfig.item.storeSpecial }}" {% if category.id == 67611 %} template-override="#vue-category-job" {% endif %}>
-														<template #before-prices>{{ LayoutContainer.show("Ceres::CategoryItem.BeforePrices", item.data) }}</template>
-														<template #after-prices>{{ LayoutContainer.show("Ceres::CategoryItem.AfterPrices", item.data) }}</template>
-														<template #item-data>{{ item.data | json_encode }}</template>
-
-														<a href="{{ item.data | itemURL }}" class="small">
-															<i class="fa fa-image"></i>
-															<span>{{ item.data | itemName }}</span>
-														</a>
-
-													</category-jobs>
-												{% endif %}
-											</li>
-										{% endif %}
 									{% endfor %}
 
 								</ul>

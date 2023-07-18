@@ -1,7 +1,12 @@
 
 <template>
-  <div class="dropdown-container" id="seachCategoriesDropdown">
-    <div class="dropdown" @click="toggleDropdown('device')">
+  <div class="dropdown-container">
+    <!-- device dropdown -->
+    <div
+      class="dropdown"
+      :class="{ open: showDropdown.device }"
+      @click="toggleDropdown('device')"
+    >
       <div class="dropdown-selected">
         {{
           selectedDevice
@@ -11,9 +16,15 @@
       </div>
       <transition name="slide-fade">
         <div class="dropdown-options" v-if="showDropdownComp.device">
+          <input
+            v-model="deviceSearch"
+            type="text"
+            placeholder="Search devices..."
+            @click.stop
+          />
           <div
             class="dropdown-option"
-            v-for="device in devices"
+            v-for="device in filteredDevices"
             :key="device.id"
             @click="selectDevice(device)"
           >
@@ -22,10 +33,12 @@
         </div>
       </transition>
     </div>
+
+    <!-- hersteller dropdown -->
     <div
       class="dropdown"
       @click="toggleDropdown('hersteller')"
-      :class="{ disabled: !selectedDevice }"
+      :class="{ open: showDropdown.hersteller, disabled: !selectedDevice }"
     >
       <div class="dropdown-selected">
         {{
@@ -36,9 +49,15 @@
       </div>
       <transition name="slide-fade">
         <div class="dropdown-options" v-if="showDropdownComp.hersteller">
+          <input
+            v-model="herstellerSearch"
+            type="text"
+            placeholder="Search herstellers..."
+            @click.stop
+          />
           <div
             class="dropdown-option"
-            v-for="hersteller in herstellers"
+            v-for="hersteller in filteredHerstellers"
             :key="hersteller.id"
             @click="selectHersteller(hersteller)"
           >
@@ -47,10 +66,12 @@
         </div>
       </transition>
     </div>
+
+    <!-- model dropdown -->
     <div
       class="dropdown"
       @click="toggleDropdown('model')"
-      :class="{ disabled: !selectedHersteller }"
+      :class="{ open: showDropdown.model, disabled: !selectedHersteller }"
     >
       <div class="dropdown-selected">
         {{
@@ -62,9 +83,15 @@
           class="dropdown-options"
           v-if="showDropdownComp.model && selectedModel === null"
         >
+          <input
+            v-model="modelSearch"
+            type="text"
+            placeholder="Search models..."
+            @click.stop
+          />
           <div
             class="dropdown-option"
-            v-for="model in models"
+            v-for="model in filteredModels"
             :key="model.id"
             @click="selectModel(model)"
           >
@@ -77,16 +104,17 @@
       :href="selectedModel ? selectedModel.lang.de.url : '#'"
       rel="noopener noreferrer"
     >
-      <button :disabled="!selectedModel">Suche</button>
+      <button class="btn btn-lg btn-primary" :disabled="!selectedModel">
+        Suche
+      </button>
     </a>
   </div>
 </template>
-  
-  <script>
+<script>
 import axios from "axios";
 
 export default {
-  name: "SearchCategories",
+  name: "new-comp",
   props: {
     initialDeviceId: {
       type: Number,
@@ -108,6 +136,9 @@ export default {
         model: false,
       },
       isDeviceDisabled: false,
+      deviceSearch: "",
+      herstellerSearch: "",
+      modelSearch: "",
     };
   },
   async created() {
@@ -132,7 +163,11 @@ export default {
   },
   methods: {
     toggleDropdown(dropdown) {
-      if (this.isDeviceDisabled && dropdown === "device") {
+      if (
+        (this.isDeviceDisabled && dropdown === "device") ||
+        (dropdown === "hersteller" && !this.selectedDevice) ||
+        (dropdown === "model" && !this.selectedHersteller)
+      ) {
         return;
       }
       this.showDropdown[dropdown] = !this.showDropdown[dropdown];
@@ -186,15 +221,39 @@ export default {
       this.selectedModel = this.selectedModel === model ? null : model;
       this.showDropdown.model = false;
     },
+    sanitizeInput(input) {
+      return input
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase();
+    },
   },
   computed: {
     showDropdownComp() {
       return this.showDropdown;
     },
+    filteredDevices() {
+      let regex = new RegExp(this.sanitizeInput(this.deviceSearch), "i");
+      return this.devices.filter((device) =>
+        regex.test(this.sanitizeInput(device.lang.de.name))
+      );
+    },
+    filteredHerstellers() {
+      let regex = new RegExp(this.sanitizeInput(this.herstellerSearch), "i");
+      return this.herstellers.filter((hersteller) =>
+        regex.test(this.sanitizeInput(hersteller.lang.de.name))
+      );
+    },
+    filteredModels() {
+      let regex = new RegExp(this.sanitizeInput(this.modelSearch), "i");
+      return this.models.filter((model) =>
+        regex.test(this.sanitizeInput(model.lang.de.name))
+      );
+    },
   },
 };
 </script>
-  
+
 
   
   
