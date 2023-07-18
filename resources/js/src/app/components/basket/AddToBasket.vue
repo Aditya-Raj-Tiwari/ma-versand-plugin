@@ -78,7 +78,7 @@
 
         <button
           v-if="!allVariationsSelected || !isSalable"
-          class="btn btn-block btn-primary btn-appearance disabled"
+          class="btn btn-block btn-primary btn-appearance btn-lg disabled"
           v-tooltip
           data-toggle="tooltip"
           data-placement="top"
@@ -92,7 +92,7 @@
         <button
           v-else-if="!buttonLockState"
           :disabled="isLoading || !hasPrice"
-          class="btn btn-block btn-primary btn-appearance"
+          class="btn btn-block btn-primary btn-lg btn-appearance"
           @click="addToBasket()"
           :class="buttonClasses"
           :style="paddingInlineStyles"
@@ -102,7 +102,7 @@
         </button>
         <button
           v-else
-          class="btn btn-block btn-primary btn-appearance disabled"
+          class="btn btn-block btn-primary btn-lg btn-appearance disabled"
           v-tooltip
           data-toggle="tooltip"
           data-placement="top"
@@ -141,7 +141,7 @@
         <button
           type="button"
           v-else
-          class="btn btn-secondary btn-appearance mobile-width-button"
+          class="btn btn-secondary btn-appearance mobile-width-button not-basket"
           @click="directToItem()"
         >
           <svg

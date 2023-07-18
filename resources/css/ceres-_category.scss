@@ -1,10 +1,8 @@
 .categoriegrid {
-    background: url('https://cdn02.plentymarkets.com/ocqgl0v083vy/frontend/website_relaunch/Gradient.png');
     margin-bottom: 0 !important;
     padding-bottom: 120px !important;
     height: 100vh;
     color: #fff;
-    padding-top: 230px !important;
     background-repeat: none;
     background-size: cover;
     height: 100%;
@@ -148,7 +146,7 @@
 
     .wishlist {
         position: absolute;
-        top: 20px;
+        top: 15px;
         right: 15px;
         background: rgba(255, 255, 255, 0.95);
         -webkit-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
@@ -158,8 +156,8 @@
         border-radius: 10px;
         border: 1px solid rgba(255, 255, 255, 0.18);
         border-radius: 50%;
-        width: 40px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
         text-align: center;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -173,7 +171,7 @@
                 align-items: center;
 
         i {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             margin-top: 3px;
             color: #757575 !important;
 
@@ -253,6 +251,10 @@
                 background: transparent url("https://cdn02.plentymarkets.com/ocqgl0v083vy/frontend/website_relaunch/icons/chevrons-up-down-svgrepo-com__1_.svg") no-repeat right 0 center/15px 10px !important;
                 color: #fff;
                 background-size: 15px !important;
+
+                option {
+                    color: #000;
+                }
             }
         }
 
@@ -300,5 +302,43 @@
 
     .sidebar-categories {
         display: none;
+    }
+}
+
+@media (min-width: 992px) {
+
+    .category-list-view-port {
+        button.not-basket {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            font-size: 1.1rem;
+            max-height: 45px;
+            min-height: 45px;
+
+            svg {
+                margin-left: 5px;
+            }
+        }
+
+        button.basket {
+            min-height: 45px;
+            font-size: 1.1rem;
+            max-height: 45px;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+
+            img {
+                top: 10px !important;
+                left: 57px !important;
+            }
+        }
     }
 }

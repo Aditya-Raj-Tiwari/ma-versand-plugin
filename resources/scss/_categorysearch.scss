@@ -1,0 +1,58 @@
+#seachCategoriesDropdown {
+    color: #000 !important;
+
+    &.dropdown-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .dropdown {
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+
+            &.disabled {
+                cursor: not-allowed;
+                color: #aaa;
+            }
+
+            .dropdown-options {
+                position: absolute;
+                width: 100%;
+                background-color: #f9f9f9;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                margin-top: 0.5rem;
+                z-index: 1;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+
+                .dropdown-option {
+                    padding: 1rem;
+
+                    &:hover {
+                        background-color: #eee;
+                    }
+                }
+            }
+        }
+    }
+
+    .slide-fade-enter-active {
+        transition: all 0.3s ease;
+    }
+
+    .slide-fade-leave-active {
+        transition: all 0.02s cubic-bezier(1, 0.5, 0.8, 0.2);
+    }
+
+    .slide-fade-enter,
+    .slide-fade-leave-to {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+
+}

@@ -1,10 +1,8 @@
 .impressum-page {
-    background: url('https://cdn02.plentymarkets.com/ocqgl0v083vy/frontend/website_relaunch/Gradient.png');
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
     height: 100vh;
     color: #fff;
-    padding-top: 250px;
 
     >.widget-inner {
         max-width: 1200px !important;
@@ -38,7 +36,6 @@
 }
 
 .datenschutzerklaerung-page {
-    background: url('https://cdn02.plentymarkets.com/ocqgl0v083vy/frontend/website_relaunch/Gradient.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -46,7 +43,6 @@
     padding-bottom: 0 !important;
     height: 100% !important;
     color: #fff;
-    padding-top: 250px;
 
     >.widget-inner {
         max-width: 1200px !important;
@@ -84,8 +80,6 @@
 
     .datenschutzerklaerung-page,
     .impressum-page {
-        padding-top: 130px !important;
-        background: url('https://cdn02.plentymarkets.com/ocqgl0v083vy/frontend/website_relaunch/Gradient.png');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -103,11 +97,7 @@
     }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-    body #vue-app {
-        margin-top: 130px !important;
-    }
-}
+
 
 @media (max-width: 767px) {
     body #vue-app {
@@ -117,7 +107,6 @@
 
 /* ========== LOGIN AND REGISTRATION PAGE ========== */
 .register-container {
-    background: url('https://cdn02.plentymarkets.com/ocqgl0v083vy/frontend/website_relaunch/Gradient.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -125,7 +114,6 @@
     padding-bottom: 0 !important;
     height: 100% !important;
     color: #fff;
-    padding-top: 250px;
 
     select~label {
         display: none;
@@ -478,5 +466,198 @@
         padding: 150px 0 !important;
         padding-left: 15px !important;
         padding-right: 15px !important;
+    }
+}
+
+
+/* ==== Contact Us Page ==== */
+
+
+.input-unit label,
+.input-unit .input-unit-label {
+    color: #fff;
+}
+
+.contact-form-name .input-unit input,
+.contact-form-name .input-unit input:focus,
+.contact-form-name .input-unit inputfocus:active,
+.contact-form-name .input-unit input:hover,
+.contact-form-email .input-unit input,
+.contact-form-email .input-unit input:focus,
+.contact-form-email .input-unit input:active,
+.contact-form-email .input-unit input:hover,
+.contact-form-phone .input-unit input,
+.contact-form-phone .input-unit input:focus,
+.contact-form-phone .input-unit input:active,
+.contact-form-phone .input-unit input:hover,
+.contact-form-message .input-unit textarea {
+    border-top: 0px !important;
+    border-left: 0px !important;
+    border-right: 0px !important;
+    outline: none !important;
+    border-bottom: 1px solid #fff;
+    background-color: transparent !important;
+    background: transparent !important;
+}
+
+.contact-form-message .input-unit.textarea>label {
+    background-color: #383938 !important;
+}
+
+.contact-form-name .input-unit,
+.contact-form-email .input-unit,
+.contact-form-phone .input-unit,
+.contact-form-message .input-unit {
+    border-top: 0px !important;
+    border-left: 0px !important;
+    border-right: 0px !important;
+    outline: none !important;
+    border: 0px !important;
+}
+
+.contact-form-teaser-headline h3 {
+    font-size: 58px;
+}
+
+.contact-form-file {
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    outline: none;
+    padding: 0px 25px 25px 0px;
+}
+
+.contact-form-file {
+    width: 100%;
+}
+
+.contact-form-file .input-unit .input-unit-preview {
+    margin-right: 20px;
+    border: 1px solid;
+    background: transparent;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    -webkit-transition: background .2s ease-in-out;
+    transition: background .2s ease-in-out;
+}
+
+.contact-form-file .input-unit label {
+    top: 10px;
+}
+
+.contact-form-file .input-unit .input-unit-btn {
+    background: none;
+}
+
+.contact-form-file .input-unit .input-unit-btn:before {
+    content: "Datei wählen";
+    color: #fff;
+    width: 111px;
+    display: block;
+    right: 210px;
+    position: absolute;
+    top: 8px;
+}
+
+.contact-form-file .input-unit .input-unit-btn i {
+    display: none;
+}
+
+.contact-form-file .input-unit {
+    border: none;
+}
+
+.contact-form-file-label .widget-inner label {
+    color: #fff;
+    margin-top: 25px;
+}
+
+
+.contact-form-mandatory-text {
+    text-align: right;
+    color: #fff;
+}
+
+.contact-form .widget-inner form .text-right {
+    text-align: left !important;
+    margin-bottom: 20px;
+}
+
+.contact-form .btn-primary {
+    border-radius: 20px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+
+    .contact-form .widget-inner form .text-right,
+    .contact-form .btn-primary {
+        width: 100%;
+    }
+}
+
+.contact-form .btn-primary i {
+    display: none;
+}
+
+.widget-accept-privacy-policy .form-check-label {
+    color: #fff;
+}
+
+
+.contact-card,
+.contact-card p a span {
+    color: #8ab536;
+}
+
+.contact-form-teaser-text::after {
+    content: url(https://cdn02.plentymarkets.com/ocqgl0v083vy/frontend/images/pfeil.svg);
+    width: 380px;
+    padding-top: 50px;
+    padding-right: 25px;
+}
+
+.contact-form-teaser-text::before {
+    content: url(https://cdn02.plentymarkets.com/ocqgl0v083vy/frontend/images/kamera.svg);
+    width: 180px;
+    padding: 25px;
+}
+
+.contact-form-teaser-text-mobile::after {
+    content: url(https://cdn02.plentymarkets.com/ocqgl0v083vy/frontend/images/pfeil.svg);
+    width: 380px;
+    -webkit-transform: rotate(-75deg);
+            transform: rotate(-75deg);
+    margin-top: -45px;
+}
+
+.contact-form-teaser-text-mobile::before {
+    content: url(https://cdn02.plentymarkets.com/ocqgl0v083vy/frontend/images/kamera.svg);
+    width: 180px;
+    padding: 25px;
+}
+
+.contact-card i {
+    display: none;
+}
+
+.contact-form {
+    .input-unit.textarea {
+        background-color: transparent !important;
+
+        textarea {
+            background-color: transparent !important;
+            background: transparent !important;
+            color: #fff;
+        }
+    }
+}
+
+.contact-form-message {
+    .input-unit.textarea {
+        background-color: transparent !important;
+        color: #fff !important;
     }
 }

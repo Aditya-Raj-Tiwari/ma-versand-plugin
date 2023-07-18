@@ -11,6 +11,8 @@
 @import "./cross-selling";
 @import "./mobile";
 @import "./preview.css";
+@import "./footer";
+@import "./categorysearch";
 
 
 body {
@@ -29,8 +31,51 @@ span>a {
     color: #FFF;
 }
 
+@media(max-width: 992px) {
+    #page-body {
+        padding-top: 98px;
+    }
+}
+
 @media(min-width: 991px) {
     #page-body {
-        padding-top: 200px;
+        padding-top: 250px;
+    }
+}
+
+.breadcrumbs {
+    background-color: rgba(81, 83, 84, 0.3) !important;
+
+    ul {
+        background: transparent;
+    }
+
+    li {
+        a {
+            color: #fff;
+        }
+    }
+}
+
+/* ==== search === */
+.fa-info-circle {
+    color: #fff;
+    position: absolute;
+    top: 12px;
+    right: 49px;
+}
+
+@media (max-width: 992px) {
+    .fa-info-circle {
+        color: black;
+        position: absolute;
+        right: 75px;
+        top: 10px;
+    }
+}
+
+@media (min-width:992px) {
+    input.search-input {
+        color: #fff;
     }
 }

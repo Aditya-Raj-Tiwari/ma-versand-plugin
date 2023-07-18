@@ -67,6 +67,7 @@
     "webpack-require-from": "^1.8.1"
   },
   "dependencies": {
+    "axios": "^1.4.0",
     "bootstrap": "4.4.1",
     "core-js": "^3.6.5",
     "custom-event-polyfill": "^1.0.0",

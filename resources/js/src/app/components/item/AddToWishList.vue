@@ -1,6 +1,6 @@
 <template>
   <button
-    class="btn wishlist-btn"
+    class="btn wishlist-btn btn-lg"
     @click.prevent="switchState()"
     data-toggle="tooltip"
     data-placement="top"

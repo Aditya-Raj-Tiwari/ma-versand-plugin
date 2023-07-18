@@ -1,9 +1,11 @@
 <?php
 namespace maversandVuePlugin\Providers;
 
-use Plenty\Modules\Webshop\Template\Providers\TemplateServiceProvider;
+use Plenty\Plugin\ServiceProvider;
 use Plenty\Plugin\Events\Dispatcher;
 use Plenty\Plugin\Templates\Twig;
+use Plenty\Modules\Webshop\Template\Providers\TemplateServiceProvider;
+use Plenty\Modules\Webshop\ItemSearch\Helpers\ResultFieldTemplate;
 use IO\Helper\TemplateContainer;
 use IO\Extensions\Functions\Partial;
 use IO\Helper\ResourceContainer;
@@ -46,6 +48,9 @@ class maversandVuePluginServiceProvider extends TemplateServiceProvider
             return false;
         }, 0);
 
+
+        $container = pluginApp(ResultFieldTemplate::class);
+        $container->setTemplate(ResultFieldTemplate::TEMPLATE_LIST_ITEM, 'maversandVuePlugin::ResultFields.ListItem');
 
 
 

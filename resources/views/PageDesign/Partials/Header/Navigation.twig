@@ -22,28 +22,28 @@
 		<div class="container-max d-none d-md-none d-lg-block">
 			<ul class="menu-list list-unstyled d-flex justify-content-between mb-0">
 				<li class="active">
-					<a href="#">Startseite</a>
+					<a href="/">Startseite</a>
 				</li>
 				<li>
-					<a href="#">Kategorien</a>
+					<a href="{{ services.category.getURLById(67620) }}">Kategorien</a>
 				</li>
 				<li>
-					<a href="#">Rasentraktor</a>
+					<a href="{{ services.category.getURLById(67618) }}">Rasentraktor</a>
 				</li>
 				<li>
-					<a href="#">Rasenmäher</a>
+					<a href="{{ services.category.getURLById(673) }}">Rasenmäher</a>
 				</li>
 				<li>
-					<a href="#">Holzspalter</a>
+					<a href="{{ services.category.getURLById(67617) }}">Holzspalter</a>
 				</li>
 				<li>
-					<a href="#">Sägeketten</a>
+					<a href="{{ services.category.getURLById(67616) }}">Sägeketten</a>
 				</li>
 				<li>
-					<a href="#">Alle Geräte</a>
+					<a href="{{ services.category.getURLById(67614) }}">Alle Geräte</a>
 				</li>
 				<li>
-					<a href="#">Zubehör</a>
+					<a href="{{ services.category.getURLById(67615) }}">Zubehör</a>
 				</li>
 				{# Tree.get_nav_bar( categories, "", ceresConfig.header.megamenuLevels, { "1": ceresConfig.header.megamenuItemsStage1, "2": ceresConfig.header.megamenuItemsStage2, "3": ceresConfig.header.megamenuItemsStage3 } ) #}
 			</ul>

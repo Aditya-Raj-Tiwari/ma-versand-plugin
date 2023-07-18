@@ -815,7 +815,7 @@ var render = function render() {
       name: "tooltip",
       rawName: "v-tooltip"
     }],
-    staticClass: "btn btn-block btn-primary btn-appearance disabled",
+    staticClass: "btn btn-block btn-primary btn-appearance btn-lg disabled",
     class: _vm.buttonClasses,
     style: _vm.paddingInlineStyles,
     attrs: {
@@ -829,7 +829,7 @@ var render = function render() {
       "aria-hidden": "true"
     }
   }), _vm._v("\n        " + _vm._s(_vm.$translate("Ceres::Template.singleItemAddToBasket")) + "\n      ")]) : !_vm.buttonLockState ? _c("button", {
-    staticClass: "btn btn-block btn-primary btn-appearance",
+    staticClass: "btn btn-block btn-primary btn-lg btn-appearance",
     class: _vm.buttonClasses,
     style: _vm.paddingInlineStyles,
     attrs: {
@@ -850,7 +850,7 @@ var render = function render() {
       name: "tooltip",
       rawName: "v-tooltip"
     }],
-    staticClass: "btn btn-block btn-primary btn-appearance disabled",
+    staticClass: "btn btn-block btn-primary btn-lg btn-appearance disabled",
     class: _vm.buttonClasses,
     style: _vm.paddingInlineStyles,
     attrs: {
@@ -895,7 +895,7 @@ var render = function render() {
       alt: "warenkorb"
     }
   }), _vm._v("\n        " + _vm._s(_vm.$translate("Ceres::Template.singleItemAddToBasket")) + "\n      ")]) : _c("button", {
-    staticClass: "btn btn-secondary btn-appearance mobile-width-button",
+    staticClass: "btn btn-secondary btn-appearance mobile-width-button not-basket",
     attrs: {
       type: "button"
     },

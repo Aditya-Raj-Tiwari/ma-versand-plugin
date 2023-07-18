@@ -1,34 +1,24 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[19],{
 
-/***/ "./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/index.js?!./resources/js/src/app/components/newsletter/NewsletterPopUp.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/app/components/newsletter/NewsletterPopUp.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/index.js?!./resources/js/src/app/components/newsletter/NewsletterUnsubscribeInput.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/app/components/newsletter/NewsletterUnsubscribeInput.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var core_js_modules_es_number_constructor_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.number.constructor.js */ "./node_modules/core-js/modules/es.number.constructor.js");
-/* harmony import */ var core_js_modules_es_number_constructor_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_number_constructor_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.object.to-string.js */ "./node_modules/core-js/modules/es.object.to-string.js");
-/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each.js */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
-/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var core_js_modules_es_array_map_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.array.map.js */ "./node_modules/core-js/modules/es.array.map.js");
-/* harmony import */ var core_js_modules_es_array_map_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_map_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var core_js_modules_es_array_filter_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/es.array.filter.js */ "./node_modules/core-js/modules/es.array.filter.js");
-/* harmony import */ var core_js_modules_es_array_filter_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_filter_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/es.function.name.js */ "./node_modules/core-js/modules/es.function.name.js");
-/* harmony import */ var core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _services_ApiService__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/ApiService */ "./resources/js/src/app/services/ApiService.js");
-/* harmony import */ var _services_NotificationService__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/NotificationService */ "./resources/js/src/app/services/NotificationService.js");
-/* harmony import */ var _services_ValidationService__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/ValidationService */ "./resources/js/src/app/services/ValidationService.js");
-/* harmony import */ var _helper_executeReCaptcha__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../helper/executeReCaptcha */ "./resources/js/src/app/helper/executeReCaptcha.js");
-/* harmony import */ var _mixins_buttonSizeProperty_mixin__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../mixins/buttonSizeProperty.mixin */ "./resources/js/src/app/mixins/buttonSizeProperty.mixin.js");
-
-
-
+/* harmony import */ var core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.regexp.exec.js */ "./node_modules/core-js/modules/es.regexp.exec.js");
+/* harmony import */ var core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_es_string_search_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.string.search.js */ "./node_modules/core-js/modules/es.string.search.js");
+/* harmony import */ var core_js_modules_es_string_search_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_search_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _services_ApiService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/ApiService */ "./resources/js/src/app/services/ApiService.js");
+/* harmony import */ var _services_ValidationService__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/ValidationService */ "./resources/js/src/app/services/ValidationService.js");
+/* harmony import */ var _services_NotificationService__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/NotificationService */ "./resources/js/src/app/services/NotificationService.js");
+/* harmony import */ var _services_UrlService__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/UrlService */ "./resources/js/src/app/services/UrlService.js");
+/* harmony import */ var _helper_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../helper/utils */ "./resources/js/src/app/helper/utils.js");
+/* harmony import */ var _mixins_buttonSizeProperty_mixin__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../mixins/buttonSizeProperty.mixin */ "./resources/js/src/app/mixins/buttonSizeProperty.mixin.js");
 
 
 
@@ -38,138 +28,55 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "newsletter-pop-up",
-  mixins: [_mixins_buttonSizeProperty_mixin__WEBPACK_IMPORTED_MODULE_10__["ButtonSizePropertyMixin"]],
-  props: {
-    showNameInputs: {
-      type: Boolean,
-      default: false
-    },
-    showPrivacyPolicyCheckbox: {
-      type: Boolean,
-      default: true
-    },
-    emailFolder: {
-      type: Number,
-      default: 0
-    }
-  },
+  mixins: [_mixins_buttonSizeProperty_mixin__WEBPACK_IMPORTED_MODULE_7__["ButtonSizePropertyMixin"]],
   data: function data() {
     return {
-      firstName: "",
-      lastName: "",
       email: "",
       isDisabled: false,
-      privacyPolicyValue: false,
-      honeypot: "",
-      loadRecaptcha: false
+      honeypot: ""
     };
-  },
-  computed: {
-    privacyPolicyText: function privacyPolicyText() {
-      var link = '<a href="' + App.urls.privacyPolicy + '" target="_blank"><span class="text-primary text-appearance">' + this.$translate("Ceres::Template.checkoutPrivacyPolicy", {
-        hyphen: "&shy;"
-      }) + "</span></a>";
-      return this.$translate("Ceres::Template.newsletterAcceptPrivacyPolicy", {
-        policy: link
-      }) + this.$translate("Ceres::Template.newsletterIsRequiredFootnote");
-    }
   },
   methods: {
     validateData: function validateData() {
       var _this = this;
       this.isDisabled = true;
-      _services_ValidationService__WEBPACK_IMPORTED_MODULE_8__["default"].validate($("#newsletter-input-form_" + this._uid)).done(function () {
+      _services_ValidationService__WEBPACK_IMPORTED_MODULE_3__["default"].validate($("#newsletter-unsubscribe-input-form_" + this._uid)).done(function () {
         _this.save();
       }).fail(function (invalidFields) {
-        _services_ValidationService__WEBPACK_IMPORTED_MODULE_8__["default"].markInvalidFields(invalidFields, "error");
-        invalidFields.filter(function (field) {
-          return field.dataset.validate !== null;
-        }).map(function (field) {
-          return {
-            type: field.dataset.validate,
-            name: field.innerText
-          };
-        }).forEach(function (field) {
-          if (field.type === "!regex") {
-            _services_NotificationService__WEBPACK_IMPORTED_MODULE_7__["default"].error(_this.$translate("Ceres::Template.newsletterNotAllowedCharacters", {
-              name: field.name
-            }));
-          }
-        });
+        _services_ValidationService__WEBPACK_IMPORTED_MODULE_3__["default"].markInvalidFields(invalidFields, "error");
         _this.isDisabled = false;
       });
     },
     save: function save() {
       var _this2 = this;
-      var recaptchaEl = this.$el.querySelector("[data-recaptcha]");
-      if (App.config.global.googleRecaptchaApiKey && (!window.grecaptcha || !recaptchaEl)) {
-        _services_NotificationService__WEBPACK_IMPORTED_MODULE_7__["default"].error(this.$translate("Ceres::Template.newsletterAcceptRecaptchaCookie"));
-        this.isDisabled = false;
-        return;
+      var urlParams = _services_UrlService__WEBPACK_IMPORTED_MODULE_5__["default"].getUrlParams(document.location.search);
+      if (Object(_helper_utils__WEBPACK_IMPORTED_MODULE_6__["isUndefined"])(urlParams.folderId)) {
+        urlParams.folderId = 0;
       }
-      Object(_helper_executeReCaptcha__WEBPACK_IMPORTED_MODULE_9__["executeReCaptcha"])(this.$el).then(function (recaptchaToken) {
-        _services_ApiService__WEBPACK_IMPORTED_MODULE_6__["default"].post("/rest/io/customer/newsletter", {
-          email: _this2.email,
-          firstName: _this2.firstName,
-          lastName: _this2.lastName,
-          emailFolder: _this2.emailFolder,
-          honeypot: _this2.honeypot,
-          recaptcha: recaptchaToken
-        }).done(function (data) {
-          if (!!data.containsHoneypot) {
-            _services_NotificationService__WEBPACK_IMPORTED_MODULE_7__["default"].warn(_this2.$translate("Ceres::Template.newsletterHoneypotWarning"));
-          } else {
-            _services_NotificationService__WEBPACK_IMPORTED_MODULE_7__["default"].success(_this2.$translate("Ceres::Template.newsletterSuccessMessage")).closeAfter(3000);
-          }
-          _this2.resetInputs();
-        }).fail(function () {
-          _services_NotificationService__WEBPACK_IMPORTED_MODULE_7__["default"].error(_this2.$translate("Ceres::Template.newsletterErrorMessage")).closeAfter(5000);
-        }).always(function () {
-          _this2.isDisabled = false;
-          _this2.resetRecaptcha();
-        });
+      _services_ApiService__WEBPACK_IMPORTED_MODULE_2__["default"].del("/rest/io/customer/newsletter/" + this.email, {
+        "emailFolder": urlParams.folderId,
+        "honeypot": this.honeypot
+      }).done(function () {
+        _services_NotificationService__WEBPACK_IMPORTED_MODULE_4__["default"].success(_this2.$translate("Ceres::Template.newsletterOptOutSuccessMessage")).closeAfter(3000);
+        _this2.resetInputs();
+      }).fail(function () {
+        _services_NotificationService__WEBPACK_IMPORTED_MODULE_4__["default"].error(_this2.$translate("Ceres::Template.newsletterOptOutErrorMessage")).closeAfter(5000);
+      }).always(function () {
+        _this2.isDisabled = false;
       });
     },
     resetInputs: function resetInputs() {
-      this.firstName = "";
-      this.lastName = "";
       this.email = "";
-      this.privacyPolicyValue = false;
-    },
-    resetRecaptcha: function resetRecaptcha() {
-      if (App.config.global.googleRecaptchaVersion === 2 && window.grecaptcha) {
-        var recaptchaId = this.$el.querySelector("[data-recaptcha]");
-        window.grecaptcha.reset(recaptchaId);
-      }
-    },
-    openPopup: function openPopup() {
-      this.$refs.mfp.style.display = "flex";
-    },
-    closePopup: function closePopup() {
-      this.$refs.mfp.style.display = "none";
-    },
-    initPopup: function initPopup() {
-      var _this3 = this;
-      var lastPopup = localStorage.getItem("lastPopup");
-      if (!lastPopup || Date.now() - lastPopup > 86400000) {
-        setTimeout(function () {
-          _this3.openPopup();
-        }, 5000);
-      }
     }
-  },
-  mounted: function mounted() {
-    this.initPopup();
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/app/components/newsletter/NewsletterPopUp.vue?vue&type=template&id=9a597662&":
-/*!*********************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/app/components/newsletter/NewsletterPopUp.vue?vue&type=template&id=9a597662& ***!
-  \*********************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/app/components/newsletter/NewsletterUnsubscribeInput.vue?vue&type=template&id=e2350d74&":
+/*!********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/app/components/newsletter/NewsletterUnsubscribeInput.vue?vue&type=template&id=e2350d74& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -177,26 +84,12 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-/* harmony import */ var core_js_modules_es_array_concat_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.concat.js */ "./node_modules/core-js/modules/es.array.concat.js");
-/* harmony import */ var core_js_modules_es_array_concat_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_concat_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var core_js_modules_es_array_slice_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.array.slice.js */ "./node_modules/core-js/modules/es.array.slice.js");
-/* harmony import */ var core_js_modules_es_array_slice_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_slice_js__WEBPACK_IMPORTED_MODULE_1__);
-
-
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", {
-    ref: "mfp",
-    staticClass: "white-popup mfp-hide"
-  }, [_c("div", {
-    staticClass: "row"
-  }, [_vm._m(0), _vm._v(" "), _c("div", {
-    staticClass: "col-lg-6 col-sm-12"
-  }, [_c("h1", [_vm._v("Lorem Ipsum")]), _vm._v(" "), _c("p", [_vm._v("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")]), _vm._v(" "), _c("form", {
-    ref: "newsletterForm",
+  return _c("form", {
     attrs: {
-      id: "newsletter-input-form_" + _vm._uid,
+      id: "newsletter-unsubscribe-input-form_" + _vm._uid,
       method: "post"
     },
     on: {
@@ -207,105 +100,36 @@ var render = function render() {
     }
   }, [_c("div", {
     staticClass: "row"
-  }, [_vm.showNameInputs ? _c("div", {
-    staticClass: "col-6"
   }, [_c("div", {
-    staticClass: "input-unit",
-    attrs: {
-      "data-validate": "!regex"
-    }
-  }, [_c("label", {
-    attrs: {
-      for: "first-name-input_" + _vm._uid
-    }
-  }, [_vm._v(_vm._s(_vm.$translate("Ceres::Template.newsletterFirstName")))]), _vm._v(" "), _c("input", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.firstName,
-      expression: "firstName"
-    }],
-    attrs: {
-      type: "text",
-      "data-validate-ref": "/[.:\\/\\d]/g",
-      id: "first-name-input_" + _vm._uid,
-      "data-testing": "nl-first-name"
-    },
-    domProps: {
-      value: _vm.firstName
-    },
-    on: {
-      input: function input($event) {
-        if ($event.target.composing) return;
-        _vm.firstName = $event.target.value;
-      }
-    }
-  })])]) : _vm._e(), _vm._v(" "), _vm.showNameInputs ? _c("div", {
-    staticClass: "col-6 pl-0"
-  }, [_c("div", {
-    staticClass: "input-unit",
-    attrs: {
-      "data-validate": "!regex"
-    }
-  }, [_c("label", {
-    attrs: {
-      for: "last-name-input_" + _vm._uid
-    }
-  }, [_vm._v(_vm._s(_vm.$translate("Ceres::Template.newsletterLastName")))]), _vm._v(" "), _c("input", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.lastName,
-      expression: "lastName"
-    }],
-    attrs: {
-      type: "text",
-      "data-validate-ref": "/[.:\\/\\d]/g",
-      id: "last-name-input_" + _vm._uid,
-      "data-testing": "nl-last-name"
-    },
-    domProps: {
-      value: _vm.lastName
-    },
-    on: {
-      input: function input($event) {
-        if ($event.target.composing) return;
-        _vm.lastName = $event.target.value;
-      }
-    }
-  })])]) : _vm._e(), _vm._v(" "), _c("div", {
     staticClass: "col-12"
   }, [_c("div", {
-    staticClass: "input-group"
-  }, [_c("div", {
-    staticClass: "input-unit",
+    staticClass: "input-unit mt-3",
     attrs: {
       "data-validate": "mail"
     }
   }, [_c("label", {
     attrs: {
-      for: "email-input-id_" + _vm._uid
+      for: "email-input-id"
     }
-  }, [_vm._v(_vm._s(_vm.$translate("Ceres::Template.newsletterEmail")) + "\n                  " + _vm._s(_vm.$translate("Ceres::Template.newsletterIsRequiredFootnote")))]), _vm._v(" "), _c("input", {
+  }, [_vm._v(_vm._s(_vm.$translate("Ceres::Template.newsletterEmail")))]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
       value: _vm.email,
       expression: "email"
     }],
+    staticClass: "form-control",
     attrs: {
       type: "email",
+      name: "email",
       autocomplete: "email",
-      id: "email-input-id_" + _vm._uid,
-      "data-testing": "nl-mail"
+      id: "email-input-id",
+      "data-testing": "unsub-nl-mail"
     },
     domProps: {
       value: _vm.email
     },
     on: {
-      focus: function focus($event) {
-        _vm.loadRecaptcha = true;
-      },
       input: function input($event) {
         if ($event.target.composing) return;
         _vm.email = $event.target.value;
@@ -320,9 +144,9 @@ var render = function render() {
     }],
     staticClass: "honey",
     attrs: {
-      autocomplete: "none",
       type: "text",
       name: "username",
+      autocomplete: "new-password",
       tabindex: "-1"
     },
     domProps: {
@@ -334,112 +158,43 @@ var render = function render() {
         _vm.honeypot = $event.target.value;
       }
     }
-  })])]), _vm._v(" "), _vm.showPrivacyPolicyCheckbox ? _c("div", {
-    staticClass: "col-12"
-  }, [_c("div", {
-    staticClass: "form-check small",
-    attrs: {
-      "data-validate": ""
-    }
-  }, [_c("input", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.privacyPolicyValue,
-      expression: "privacyPolicyValue"
-    }],
-    staticClass: "form-check-input",
-    attrs: {
-      type: "checkbox",
-      id: "privacy-policy-accept-id_" + _vm._uid,
-      name: "privacy-policy-accept",
-      "data-testing": "nl-policy"
-    },
-    domProps: {
-      checked: Array.isArray(_vm.privacyPolicyValue) ? _vm._i(_vm.privacyPolicyValue, null) > -1 : _vm.privacyPolicyValue
-    },
-    on: {
-      change: function change($event) {
-        var $$a = _vm.privacyPolicyValue,
-          $$el = $event.target,
-          $$c = $$el.checked ? true : false;
-        if (Array.isArray($$a)) {
-          var $$v = null,
-            $$i = _vm._i($$a, $$v);
-          if ($$el.checked) {
-            $$i < 0 && (_vm.privacyPolicyValue = $$a.concat([$$v]));
-          } else {
-            $$i > -1 && (_vm.privacyPolicyValue = $$a.slice(0, $$i).concat($$a.slice($$i + 1)));
-          }
-        } else {
-          _vm.privacyPolicyValue = $$c;
-        }
-      }
-    }
-  }), _vm._v(" "), _c("label", {
-    staticClass: "form-check-label",
-    attrs: {
-      for: "privacy-policy-accept-id_" + _vm._uid
-    },
-    domProps: {
-      innerHTML: _vm._s(_vm.privacyPolicyText)
-    }
-  })])]) : _vm._e(), _vm._v(" "), _c("div", {
-    staticClass: "col-12 mt-3"
-  }, [_c("div", {
+  }), _vm._v(" "), _c("span", {
     staticClass: "input-group-btn"
   }, [_c("button", {
-    staticClass: "btn btn-block btn-primary btn-appearance",
+    staticClass: "btn btn-primary btn-appearance float-right btn-medium btn-xs-max-width",
     class: _vm.buttonSizeClass,
     attrs: {
-      type: "button",
+      type: "submit",
       disabled: _vm.isDisabled,
-      "data-testing": "nl-send"
+      "data-testing": "unsub-nl-send"
     },
     on: {
       click: _vm.validateData
     }
-  }, [_vm._v("\n                " + _vm._s(_vm.$translate("Ceres::Template.newsletterSubscribeButtonLabel")) + "\n              ")])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-12 text-left small mt-2"
-  }, [_vm._v("\n            " + _vm._s(_vm.$translate("Ceres::Template.newsletterIsRequiredFootnote")) + "\n            " + _vm._s(_vm.$translate("Ceres::Template.newsletterIsRequired")) + "\n          ")])]), _vm._v(" "), !!_vm.$ceres.config.global.googleRecaptchaApiKey && _vm.loadRecaptcha ? _c("recaptcha") : _vm._e()], 1), _vm._v(" "), _c("p", {
-    staticClass: "text-left"
-  }, [_vm._v("\n        Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n      ")])]), _vm._v(" "), _c("button", {
-    staticClass: "close-button",
-    on: {
-      click: _vm.closePopup
-    }
-  }, [_c("i", {
-    staticClass: "fa fa-times"
-  })])])]);
-};
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "col-lg-6 col-sm-12"
-  }, [_c("img", {
+  }, [_c("icon", {
     attrs: {
-      src: "https://cdn02.plentymarkets.com/ocqgl0v083vy/frontend/website_relaunch/newsletter/newsletter-image.jpg",
-      alt: "newsletter popup"
+      icon: "paper-plane-o",
+      loading: _vm.isDisabled
     }
-  })]);
-}];
+  }), _vm._v(" "), _c("span", [_vm._v(_vm._s(_vm.$translate("Ceres::Template.newsletterUnsubscribeButtonLabel")))])], 1)])])])]);
+};
+var staticRenderFns = [];
 render._withStripped = true;
 
 
 /***/ }),
 
-/***/ "./resources/js/src/app/components/newsletter/NewsletterPopUp.vue":
-/*!************************************************************************!*\
-  !*** ./resources/js/src/app/components/newsletter/NewsletterPopUp.vue ***!
-  \************************************************************************/
+/***/ "./resources/js/src/app/components/newsletter/NewsletterUnsubscribeInput.vue":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/src/app/components/newsletter/NewsletterUnsubscribeInput.vue ***!
+  \***********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _NewsletterPopUp_vue_vue_type_template_id_9a597662___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NewsletterPopUp.vue?vue&type=template&id=9a597662& */ "./resources/js/src/app/components/newsletter/NewsletterPopUp.vue?vue&type=template&id=9a597662&");
-/* harmony import */ var _NewsletterPopUp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NewsletterPopUp.vue?vue&type=script&lang=js& */ "./resources/js/src/app/components/newsletter/NewsletterPopUp.vue?vue&type=script&lang=js&");
+/* harmony import */ var _NewsletterUnsubscribeInput_vue_vue_type_template_id_e2350d74___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NewsletterUnsubscribeInput.vue?vue&type=template&id=e2350d74& */ "./resources/js/src/app/components/newsletter/NewsletterUnsubscribeInput.vue?vue&type=template&id=e2350d74&");
+/* harmony import */ var _NewsletterUnsubscribeInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NewsletterUnsubscribeInput.vue?vue&type=script&lang=js& */ "./resources/js/src/app/components/newsletter/NewsletterUnsubscribeInput.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -449,9 +204,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _NewsletterPopUp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _NewsletterPopUp_vue_vue_type_template_id_9a597662___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _NewsletterPopUp_vue_vue_type_template_id_9a597662___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _NewsletterUnsubscribeInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _NewsletterUnsubscribeInput_vue_vue_type_template_id_e2350d74___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _NewsletterUnsubscribeInput_vue_vue_type_template_id_e2350d74___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -461,38 +216,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/src/app/components/newsletter/NewsletterPopUp.vue"
+component.options.__file = "resources/js/src/app/components/newsletter/NewsletterUnsubscribeInput.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/src/app/components/newsletter/NewsletterPopUp.vue?vue&type=script&lang=js&":
-/*!*************************************************************************************************!*\
-  !*** ./resources/js/src/app/components/newsletter/NewsletterPopUp.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************************/
+/***/ "./resources/js/src/app/components/newsletter/NewsletterUnsubscribeInput.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************!*\
+  !*** ./resources/js/src/app/components/newsletter/NewsletterUnsubscribeInput.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_NewsletterPopUp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./NewsletterPopUp.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/index.js?!./resources/js/src/app/components/newsletter/NewsletterPopUp.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_NewsletterPopUp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_NewsletterUnsubscribeInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./NewsletterUnsubscribeInput.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/index.js?!./resources/js/src/app/components/newsletter/NewsletterUnsubscribeInput.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_NewsletterUnsubscribeInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/src/app/components/newsletter/NewsletterPopUp.vue?vue&type=template&id=9a597662&":
-/*!*******************************************************************************************************!*\
-  !*** ./resources/js/src/app/components/newsletter/NewsletterPopUp.vue?vue&type=template&id=9a597662& ***!
-  \*******************************************************************************************************/
+/***/ "./resources/js/src/app/components/newsletter/NewsletterUnsubscribeInput.vue?vue&type=template&id=e2350d74&":
+/*!******************************************************************************************************************!*\
+  !*** ./resources/js/src/app/components/newsletter/NewsletterUnsubscribeInput.vue?vue&type=template&id=e2350d74& ***!
+  \******************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_NewsletterPopUp_vue_vue_type_template_id_9a597662___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./NewsletterPopUp.vue?vue&type=template&id=9a597662& */ "./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/app/components/newsletter/NewsletterPopUp.vue?vue&type=template&id=9a597662&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_NewsletterPopUp_vue_vue_type_template_id_9a597662___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_NewsletterUnsubscribeInput_vue_vue_type_template_id_e2350d74___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./NewsletterUnsubscribeInput.vue?vue&type=template&id=e2350d74& */ "./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/app/components/newsletter/NewsletterUnsubscribeInput.vue?vue&type=template&id=e2350d74&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_NewsletterUnsubscribeInput_vue_vue_type_template_id_e2350d74___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_NewsletterPopUp_vue_vue_type_template_id_9a597662___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_NewsletterUnsubscribeInput_vue_vue_type_template_id_e2350d74___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

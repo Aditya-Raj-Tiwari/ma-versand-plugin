@@ -16,7 +16,9 @@ import ReCaptcha from "./app/components/customer/ReCaptcha.vue";
 import UserLoginHandler from "./app/components/customer/login/UserLoginHandler.vue";
 
 import CategoryItem from "./app/components/itemList/CategoryItem.vue";
+import CategoryJobs from "./app/components/itemList/CategoryJobs.vue";
 import ItemSearch from "./app/components/itemList/ItemSearch.vue";
+import SearchCategories from "./app/components/itemList/SearchCategories.vue";
 
 import CookieBar from "./app/components/pageDesign/CookieBar.vue";
 import Carousel from "./app/components/pageDesign/Carousel.vue";
@@ -132,10 +134,11 @@ export function beforeCreate(context) {
     Vue.component("quantity-input", () => import("./app/components/item/QuantityInput.vue"));
     Vue.component("tag-list", () => import("./app/components/item/TagList.vue"));
     Vue.component("category-item", CategoryItem);
+    Vue.component("category-jobs", CategoryJobs);
     Vue.component("item-search", ItemSearch);
+    Vue.component("search-categories", SearchCategories);
     Vue.component("search-suggestion-item", () => import("./app/components/itemList/SearchSuggestionItem.vue"));
     Vue.component("item-filter-list", () => import("./app/components/itemList/filter/ItemFilterList.vue"));
-    Vue.component("item-filter-zipcode", () => import("./app/components/itemList/filter/ItemFilterZipcode.vue"));
     Vue.component("item-filter-tag-list", () => import("./app/components/itemList/filter/ItemFilterTagList.vue"));
     Vue.component("live-shopping-item", () => import("./app/components/liveShopping/LiveShoppingItem.vue"));
     Vue.component("newsletter-input", () => import("./app/components/newsletter/NewsletterInput.vue"));
