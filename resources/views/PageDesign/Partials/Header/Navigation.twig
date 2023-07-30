@@ -21,28 +21,28 @@
 		</div>
 		<div class="container-max d-none d-md-none d-lg-block">
 			<ul class="menu-list list-unstyled d-flex justify-content-between mb-0">
-				<li class="active">
+				<li {% if category.id == 67624 %}class="active"{% endif %}>
 					<a href="/">Startseite</a>
 				</li>
-				<li>
-					<a href="{{ services.category.getURLById(67620) }}">Kategorien</a>
-				</li>
-				<li>
-					<a href="{{ services.category.getURLById(67618) }}">Rasentraktor</a>
-				</li>
-				<li>
-					<a href="{{ services.category.getURLById(673) }}">Rasenmäher</a>
-				</li>
-				<li>
-					<a href="{{ services.category.getURLById(67617) }}">Holzspalter</a>
-				</li>
-				<li>
-					<a href="{{ services.category.getURLById(67616) }}">Sägeketten</a>
-				</li>
-				<li>
+				<li {% if category.id == 67614 %}class="active"{% endif %}>
 					<a href="{{ services.category.getURLById(67614) }}">Alle Geräte</a>
 				</li>
-				<li>
+				<li {% if category.id == 9587 %}class="active"{% endif %}>
+					<a href="{{ services.category.getURLById(9587) }}">Rasentrimmer</a>
+				</li>
+				<li {% if category.id == 352 %}class="active"{% endif %}>
+					<a href="{{ services.category.getURLById(352) }}">Rasenmäher</a>
+				</li>
+				<li {% if category.id == 382 %}class="active"{% endif %}>
+					<a href="{{ services.category.getURLById(382) }}">Holzspalter</a>
+				</li>
+				<li {% if category.id == 425 %}class="active"{% endif %}>
+					<a href="{{ services.category.getURLById(425) }}">Motorsägen</a>
+				</li>
+				<li {% if category.id == 67619 %}class="active"{% endif %}>
+					<a href="{{ services.category.getURLById(67619) }}">Alle Marken</a>
+				</li>
+				<li {% if category.id == 67615 %}class="active"{% endif %}>
 					<a href="{{ services.category.getURLById(67615) }}">Zubehör</a>
 				</li>
 				{# Tree.get_nav_bar( categories, "", ceresConfig.header.megamenuLevels, { "1": ceresConfig.header.megamenuItemsStage1, "2": ceresConfig.header.megamenuItemsStage2, "3": ceresConfig.header.megamenuItemsStage3 } ) #}

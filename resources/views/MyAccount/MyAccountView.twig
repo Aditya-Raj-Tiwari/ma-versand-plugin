@@ -1,154 +1,357 @@
 {% extends getPartial('page-design') %}
 
+{% set currentUrl = request.getQueryString() %}
+
 {% block PartialHead %}
-    {% embed getPartial('page-metadata') %}
-        {% block title trans("Ceres::Template.myAccount") %}
-    {% endembed %}
+	{% embed getPartial('page-metadata') %}
+		{% block title trans("Ceres::Template.myAccount") %}
+	{% endembed %}
 {% endblock %}
 
 {% block PageBody %}
 
-    {{ component( "Ceres::Customer.Components.AddressSelect.AddressSelect" ) }}
-    {{ component( "Ceres::MyAccount.Components.AccountSettings" ) }}
-    {{ component( "Ceres::MyAccount.Components.History" ) }}
-    {{ component( "Ceres::MyAccount.Components.BankDataSelect" ) }}
+	{{ component( "Ceres::Customer.Components.AddressSelect.AddressSelect" ) }}
+	{{ component( "Ceres::MyAccount.Components.AccountSettings" ) }}
+	{{ component( "Ceres::MyAccount.Components.History" ) }}
+	{{ component( "Ceres::MyAccount.Components.BankDataSelect" ) }}
 
-    {% set userObject = services.customer.getContact() %}
-    {% set userBankData = services.contactBank.getBanksOfContact(frontend.Account.AccountContactId) %}
-    {% set isReturnActive = ceresConfig.myAccount.orderReturnActive %}
-    {% set contactHasReturns = services.customer.hasReturns() %}
+	{% set userObject = services.customer.getContact() %}
+	{% set userBankData = services.contactBank.getBanksOfContact(frontend.Account.AccountContactId) %}
+	{% set isReturnActive = ceresConfig.myAccount.orderReturnActive %}
+	{% set contactHasReturns = services.customer.hasReturns() %}
 
-    {% set optionalInvoiceAddressFields = {
+	{% set optionalInvoiceAddressFields = {
         "de": ceresConfig.addresses.billingAddressShow,
         "gb": ceresConfig.addresses.billingAddressShow_en
         }
     %}
-    {% set requiredInvoiceAddressFields = {
+	{% set requiredInvoiceAddressFields = {
         "de": ceresConfig.addresses.billingAddressRequire,
         "gb": ceresConfig.addresses.billingAddressRequire_en
         }
     %}
 
-    {% set optionalShippingAddressFields = {
+	{% set optionalShippingAddressFields = {
         "de": ceresConfig.addresses.deliveryAddressShow,
         "gb": ceresConfig.addresses.deliveryAddressShow_en
         }
     %}
-    {% set requiredShippingAddressFields = {
+	{% set requiredShippingAddressFields = {
         "de": ceresConfig.addresses.deliveryAddressRequire,
         "gb": ceresConfig.addresses.billingAddressRequire_en
         }
     %}
 
-    <my-account
-        :delivery-address-list="{{ services.customer.getAddresses(2) | json_encode }}"
-        :selected-delivery-address="{{ services.checkout.getDeliveryAddressId() | json_encode }}"
-        :billing-address-list="{{ services.customer.getAddresses(1) | json_encode }}"
-        :selected-billing-address="{{ services.checkout.getBillingAddressId() | json_encode }}">
-        <div>
-            <div class="page-content myaccount container-max mb-5 mt-3 pt-3 bg-white">
-                <!-- HEADER -->
-                <div class="row mb-5">
-                    <div class="col-sm-9">
-                        <h1 class="h2">{{ trans("Ceres::Template.myAccount") }}</h1>
-                        {% if frontend.Account.getIsAccountLoggedIn %}
-                            {% if userObject.firstName|length > 0 and userObject.lastName|length > 0 %}
-                                <span class="text-muted">{{ trans("Ceres::Template.myAccountHello", {"username": userObject.firstName ~ " " ~ userObject.lastName}) }}</span>
-                            {% else %}
-                                <span class="text-muted">{{ trans("Ceres::Template.myAccountHello", {"username": userObject.email}) }}</span>
-                            {% endif %}
-                        {% endif %}
-                    </div>
-                    <div class="col-sm-3">
-                        <a href="#" class="btn btn-danger float-right btn-medium" v-logout>
-                            <span>{{ trans("Ceres::Template.myAccountLogout") }}</span>
-                            <i class="fa fa-sign-out"></i>
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <hr class="">
-                    </div>
-                </div>
-                <!-- ./HEADER -->
+	<my-account :delivery-address-list="{{ services.customer.getAddresses(2) | json_encode }}" :selected-delivery-address="{{ services.checkout.getDeliveryAddressId() | json_encode }}" :billing-address-list="{{ services.customer.getAddresses(1) | json_encode }}" :selected-billing-address="{{ services.checkout.getBillingAddressId() | json_encode }}">
+		<div class="page-content myaccount container-max py-5">
+			<div
+				class="row">
+				<!-- ADDRESS AREA -->
+				<div class="col-3">
+					<h1 class="h2 mb-3 mb-sm-3 mb-md-5 mb-5">{{ trans("Ceres::Template.myAccount") }}</h1>
+					<ul class="myaccount-sidebar list-unstyled mb-0">
+						<li>
+							<a href="/my-account" class="overview {% if not ('order' in currentUrl or 'returns' in currentUrl or 'devicemanager' in currentUrl or 'personaldata' in currentUrl or 'faq' in currentUrl) %}active{% endif %}">Übersicht</a>
+						</li>
+						<li>
+							<a class="order {% if 'order' in currentUrl %}active{% endif %}">Meine Bestellung</a>
+						</li>
+						<li>
+							<a class="returns {% if 'returns' in currentUrl %}active{% endif %}">Meine Retouren</a>
+						</li>
+						<li>
+							<a class="devicemanager {% if 'devicemanager' in currentUrl %}active{% endif %}">Meine Geräte</a>
+						</li>
+						<li>
+							<a href="/wish-list">Meine Lieblingsprodukte</a>
+						</li>
+						<li>
+							<a class="personaldata {% if 'personaldata' in currentUrl %}active{% endif %}">Persönliche Daten</a>
+						</li>
+						<li>
+							<a class="faq {% if 'faq' in currentUrl %}active{% endif %}">Hilfe & FAQ</a>
+						</li>
+					</ul>
+				</div>
+				<!-- ./ADDRESS AREA -->
+				<!-- ACCOUNT SETTINGS AREA -->
+				<div class="col-9">
+					<div class="d-flex flex-wrap ml-0 ml-sm-0 ml-md-5 ml-lg-5">
+						<div class="row w-100 mx-0 mb-3 mb-sm-3 mb-md-5 mb-5">
+							<div class="col-6">
+								{% if frontend.Account.getIsAccountLoggedIn %}
+									{% if userObject.firstName|length > 0 and userObject.lastName|length > 0 %}
+										<span class="h2">{{ trans("Ceres::Template.myAccountHello", {"username": userObject.firstName }) }}</span>
+									{% else %}
+										<span class="h2">{{ trans("Ceres::Template.myAccountHello", {"username": userObject.email}) }}</span>
+									{% endif %}
+								{% endif %}
+							</div>
+							<div class="col-6">
+								<a href="#" class="btn btn-danger float-right btn-medium" v-logout>
+									<span>{{ trans("Ceres::Template.myAccountLogout") }}</span>
+									<i class="fa fa-sign-out"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+					{% if not ('order' in currentUrl or 'returns' in currentUrl or 'devicemanager' in currentUrl or 'personaldata' in currentUrl or 'faq' in currentUrl) %}
+						<div class="myaccount-cards row ml-0 ml-sm-0 ml-md-5 ml-lg-5 mr-0">
+							<div class="col-12 col-6 col-md-4 col-lg-4">
+								<div class="card mb-4 orders">
+									<div class="card-body text-center p-3 p-sm-3 p-md-4 p-lg-5">
+										<svg id="Gruppe_216" data-name="Gruppe 216" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="118" height="112" viewbox="0 0 118 112">
+											<defs>
+												<clipPath id="clip-path">
+													<rect id="Rechteck_495" data-name="Rechteck 495" width="118" height="112" fill="none"/>
+												</clipPath>
+												<pattern id="pattern" preserveaspectratio="none" width="100%" height="100%" viewbox="0 0 144 144">
+													<image width="144" height="144" xlink:href="data:image/png;base64,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"/>
+												</pattern>
+											</defs>
+											<g id="Gruppe_215" data-name="Gruppe 215" clip-path="url(#clip-path)">
+												<rect id="Rechteck_494" data-name="Rechteck 494" width="118" height="112" fill="url(#pattern)"/>
+											</g>
+										</svg>
+										<span class="d-block h4 mb-3">Meine Bestellung</span>
+										<span class="d-block">Hier erfahren Sie den aktuellen Status Ihrer Bestellungen</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 col-6 col-md-4 col-lg-4">
+								<div class="card mb-4 returns">
+									<div class="card-body text-center p-3 p-sm-3 p-md-4 p-lg-5">
+										<svg id="Gruppe_240" data-name="Gruppe 240" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="143" height="147" viewbox="0 0 143 147">
+											<defs>
+												<clipPath id="clip-path">
+													<rect id="Rechteck_511" data-name="Rechteck 511" width="143" height="147" fill="none"/>
+												</clipPath>
+												<pattern id="pattern" preserveaspectratio="none" width="100%" height="100%" viewbox="0 0 144 144">
+													<image width="144" height="144" xlink:href="data:image/png;base64,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"/>
+												</pattern>
+											</defs>
+											<g id="Gruppe_239" data-name="Gruppe 239" clip-path="url(#clip-path)">
+												<rect id="Rechteck_510" data-name="Rechteck 510" width="143" height="147" fill="url(#pattern)"/>
+											</g>
+										</svg>
+										<span class="d-block h4 mb-3">Meine Retouren</span>
+										<span class="d-block">Einblick in Ihre aktuellen oder vergangenen Retouren</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 col-6 col-md-4 col-lg-4">
+								<div class="card mb-4 personaldata">
+									<div class="card-body text-center p-3 p-sm-3 p-md-4 p-lg-5">
+										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="123" height="130" viewbox="0 0 123 130">
+											<defs>
+												<clipPath id="clip-path">
+													<rect id="Rechteck_513" data-name="Rechteck 513" width="123" height="130" transform="translate(-0.328)" fill="none"/>
+												</clipPath>
+												<pattern id="pattern" preserveaspectratio="none" width="100%" height="100%" viewbox="0 0 144 144">
+													<image width="144" height="144" xlink:href="data:image/png;base64,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"/>
+												</pattern>
+											</defs>
+											<g id="Gruppe_242" data-name="Gruppe 242" transform="translate(0.328)" clip-path="url(#clip-path)">
+												<rect id="Rechteck_512" data-name="Rechteck 512" width="123" height="130" transform="translate(-0.328)" fill="url(#pattern)"/>
+											</g>
+										</svg>
+										<span class="d-block h4 mb-3">Meine Profil</span>
+										<span class="d-block">Hier können Sie Ihre persönlichen Daten hinterlegen und ändern</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 col-6 col-md-4 col-lg-4">
+								<div class="card mb-4 devicemanager">
+									<div class="card-body text-center p-3 p-sm-3 p-md-4 p-lg-5">
+										<svg id="Gruppe_522" data-name="Gruppe 522" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="99" height="99" viewbox="0 0 99 99">
+											<defs>
+												<clipPath id="clip-path">
+													<rect id="Rechteck_922" data-name="Rechteck 922" width="99" height="99" fill="none"/>
+												</clipPath>
+											</defs>
+											<g id="Gruppe_521" data-name="Gruppe 521" clip-path="url(#clip-path)">
+												<image id="Rechteck_921" data-name="Rechteck 921" width="99" height="99" xlink:href="data:image/png;base64,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"/>
+											</g>
+										</svg>
+										<span class="d-block h4 mb-3">Meine Geräte</span>
+										<span class="d-block">Hier können Sie Ihre persönlichen Daten hinterlegen und ändern</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 col-6 col-md-4 col-lg-4">
+								<div class="card mb-4">
+									<div class="card-body text-center p-3 p-sm-3 p-md-4 p-lg-5">
+										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="114" height="120" viewbox="0 0 114 120">
+											<defs>
+												<clipPath id="clip-path">
+													<rect id="Rechteck_517" data-name="Rechteck 517" width="114" height="120" transform="translate(0.488)" fill="none"/>
+												</clipPath>
+												<pattern id="pattern" preserveaspectratio="none" width="100%" height="100%" viewbox="0 0 144 144">
+													<image width="144" height="144" xlink:href="data:image/png;base64,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"/>
+												</pattern>
+											</defs>
+											<g id="Gruppe_249" data-name="Gruppe 249" transform="translate(-0.488)">
+												<g id="Gruppe_248" data-name="Gruppe 248" clip-path="url(#clip-path)">
+													<rect id="Rechteck_516" data-name="Rechteck 516" width="114" height="120" transform="translate(0.488)" fill="url(#pattern)"/>
+												</g>
+											</g>
+										</svg>
+										<span class="d-block h4 mb-3">Wunschliste</span>
+										<span class="d-block">Hier sehen Sie eine Übersicht Ihrer aktuellen Wunschlisten</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 col-6 col-md-4 col-lg-4">
+								<div class="card mb-4 faq">
+									<div class="card-body text-center p-3 p-sm-3 p-md-4 p-lg-5">
+										<svg id="Gruppe_252" data-name="Gruppe 252" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="111" height="111" viewbox="0 0 111 111">
+											<defs>
+												<clipPath id="clip-path">
+													<rect id="Rechteck_519" data-name="Rechteck 519" width="111" height="111" fill="none"/>
+												</clipPath>
+											</defs>
+											<g id="Gruppe_251" data-name="Gruppe 251" clip-path="url(#clip-path)">
+												<image id="Rechteck_518" data-name="Rechteck 518" width="111" height="111" xlink:href="data:image/png;base64,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"/>
+											</g>
+										</svg>
+										<span class="d-block h4 mb-3">Hilfe & FAQ</span>
+										<span class="d-block">Infos in unserem FAQ-Bereich sowie Kontaktmöglichkeiten</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					{% endif %}
+					{% if 'order' in currentUrl %}
+						<div class="row ml-0 ml-sm-0 ml-md-5 ml-lg-5 mr-0">
+							<div
+								class="col">
+								<!-- HISTORY -->
+								<orders></orders>
+							</div>
+						</div>
+					{% endif %}
+					<!-- Devicemanager -->
 
-                <!-- ADDRESS AREA -->
-                <div class="row">
-                    <div class="col-md-6">
-                        <h4>
-                            {{ trans("Ceres::Template.myAccountInvoiceAddresses") }}
-                        </h4>
-                        <p class="text-muted small font-italic">{{ trans("Ceres::Template.myAccountAll") }} {{ trans("Ceres::Template.myAccountInvoiceAddresses") }}</p>
-                        <div class="invoice-addresses-select">
-                            <invoice-address-select
-                                :optional-address-fields="{{ optionalInvoiceAddressFields | json_encode }}"
-                                :required-address-fields="{{ requiredInvoiceAddressFields | json_encode }}"
-                                default-salutation="{{ ceresConfig.addresses.defaultSalutation }}"
-                                email="{{ services.customer.getEmail() }}">
-                            </invoice-address-select>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <h4>
-                            {{ trans("Ceres::Template.myAccountShippingAddresses") }}
-                        </h4>
-                        <p class="text-muted small font-italic">{{ trans("Ceres::Template.myAccountAll") }} {{ trans("Ceres::Template.myAccountShippingAddresses") }}</p>
-                        <div class="shipping-addresses-select">
-                            <shipping-address-select
-                                :optional-address-fields="{{ optionalShippingAddressFields | json_encode }}"
-                                :required-address-fields="{{ requiredShippingAddressFields | json_encode }}"
-                                :has-any-parcel-box-preset="{{ services.shipping.hasAnyParcelBoxPreset() | json_encode }}"
-                                :has-any-post-office-preset="{{ services.shipping.hasAnyPostOfficePreset() | json_encode }}"
-                                default-salutation="{{ ceresConfig.addresses.defaultSalutation }}"
-                                email="{{ services.customer.getEmail() }}">
-                            </shipping-address-select>
-                        </div>
-                    </div>
-                </div>
-                <!-- ./ADDRESS AREA -->
+					{% if 'devicemanager' in currentUrl %}
+						<div class="row ml-0 ml-sm-0 ml-md-5 ml-lg-5 mr-0">
+							<div class="col">
+								<modal-manager></modal-manager>
+							</div>
+						</div>
+					{% endif %}
+					<!-- Devicemanager end -->
+					{% if 'personaldata' in currentUrl %}
+						<div class="row ml-0 ml-sm-0 ml-md-5 ml-lg-5 mr-0">
+							<div
+								class="col">
+								<!-- ADDRESS AREA -->
+								<div class="row">
+									<div class="col-md-6">
+										<h4>
+											{{ trans("Ceres::Template.myAccountInvoiceAddresses") }}
+										</h4>
+										<p class="text-muted small font-italic">{{ trans("Ceres::Template.myAccountAll") }}
+											{{ trans("Ceres::Template.myAccountInvoiceAddresses") }}</p>
+										<div class="invoice-addresses-select">
+											<invoice-address-select :optional-address-fields="{{ optionalInvoiceAddressFields | json_encode }}" :required-address-fields="{{ requiredInvoiceAddressFields | json_encode }}" default-salutation="{{ ceresConfig.addresses.defaultSalutation }}" email="{{ services.customer.getEmail() }}"></invoice-address-select>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<h4>
+											{{ trans("Ceres::Template.myAccountShippingAddresses") }}
+										</h4>
+										<p class="text-muted small font-italic">{{ trans("Ceres::Template.myAccountAll") }}
+											{{ trans("Ceres::Template.myAccountShippingAddresses") }}</p>
+										<div class="shipping-addresses-select">
+											<shipping-address-select :optional-address-fields="{{ optionalShippingAddressFields | json_encode }}" :required-address-fields="{{ requiredShippingAddressFields | json_encode }}" :has-any-parcel-box-preset="{{ services.shipping.hasAnyParcelBoxPreset() | json_encode }}" :has-any-post-office-preset="{{ services.shipping.hasAnyPostOfficePreset() | json_encode }}" default-salutation="{{ ceresConfig.addresses.defaultSalutation }}" email="{{ services.customer.getEmail() }}"></shipping-address-select>
+										</div>
+									</div>
+								</div>
+								<!-- ./ADDRESS AREA -->
 
-                <!-- ACCOUNT SETTINGS AREA -->
-                <div class="row">
-                    <div class="col-md-6">
-                        <h4>
-                            {{ trans("Ceres::Template.myAccountSettings") }}
-                        </h4>
-                        <p class="text-muted small font-italic">{{ trans("Ceres::Template.myAccountChangeLoginData") }}</p>
+								<!-- ACCOUNT SETTINGS AREA -->
+								<div class="row">
+									<div class="col-md-6">
+										<h4>
+											{{ trans("Ceres::Template.myAccountSettings") }}
+										</h4>
+										<p class="text-muted small font-italic">{{ trans("Ceres::Template.myAccountChangeLoginData") }}</p>
 
-                        <div class="card mb-5">
-                            <account-settings :user-data="{{ userObject | json_encode }}"></account-settings>
-                        </div>
-                    </div>
+										<div class="card mb-5">
+											<account-settings :user-data="{{ userObject | json_encode }}"></account-settings>
+										</div>
+									</div>
 
-                    <div class="col-md-6">
-                        <h4>
-                            {{ trans("Ceres::Template.myAccountBankDetails") }}
-                        </h4>
+									<div class="col-md-6">
+										<h4>
+											{{ trans("Ceres::Template.myAccountBankDetails") }}
+										</h4>
 
 
-                        <p class="text-muted small font-italic">{{ trans("Ceres::Template.myAccountChangePaymentInformation") }}</p>
-                        <bank-data-select template="#vue-bank-data-select" :user-bank-data="{{ userBankData }}"
-                                        contact-id="{{ frontend.Account.AccountContactId }}"></bank-data-select>
+										<p class="text-muted small font-italic">{{ trans("Ceres::Template.myAccountChangePaymentInformation") }}</p>
+										<bank-data-select template="#vue-bank-data-select" :user-bank-data="{{ userBankData }}" contact-id="{{ frontend.Account.AccountContactId }}"></bank-data-select>
 
-                    </div>
-                </div>
-                <!-- ./ACCOUNT SETTINGS AREA -->
-
-            </div>
-
-            {% set ordersPerPage = config("Ceres.my_account.orders_per_page") %}
-            {% if not (ordersPerPage matches '/^\\d+$/') %}
-                {# config value is not a valid number #}
-                {% set ordersPerPage = 5 %}
-            {% endif %}
-
-            <!-- HISTORY -->
-            <history template="#vue-history"
-                    :orders-per-page="{{ ordersPerPage }}"
-                    :is-return-active="{{ isReturnActive | json_encode }}"
-                    :contact-has-returns="{{ contactHasReturns | json_encode }}">
-            </history>
-            <!-- ./HISTORY -->
-        </div>
-    </my-account>
-
+									</div>
+								</div>
+								<!-- ./ACCOUNT SETTINGS AREA -->
+							</div>
+						</div>
+					{% endif %}
+				</div>
+				<!-- ./ACCOUNT SETTINGS AREA -->
+			</div>
+		</div>
+	</my-account>
+	<script2>
+		var orderElements = document.getElementsByClassName('order');
+																        for (var i = 0; i < orderElements.length; i++) {
+																            orderElements[i].addEventListener('click', function(event) {
+																                event.preventDefault();
+																                var parameterObjekt = { section: 'order' };
+																                var parameter = new URLSearchParams(parameterObjekt).toString();
+																                var zielURL = 'https://www.ma-versand.de/webshop/kundenkonto?' + parameter;
+																                window.location.href = zielURL;
+																            });
+																        }
+																        var orderElements = document.getElementsByClassName('returns');
+																        for (var i = 0; i < orderElements.length; i++) {
+																            orderElements[i].addEventListener('click', function(event) {
+																                event.preventDefault();
+																                var parameterObjekt = { section: 'returns' };
+																                var parameter = new URLSearchParams(parameterObjekt).toString();
+																                var zielURL = 'https://www.ma-versand.de/webshop/kundenkonto?' + parameter;
+																                window.location.href = zielURL;
+																            });
+																        }
+																        var orderElements = document.getElementsByClassName('personaldata');
+																        for (var i = 0; i < orderElements.length; i++) {
+																            orderElements[i].addEventListener('click', function(event) {
+																                event.preventDefault();
+																                var parameterObjekt = { section: 'personaldata' };
+																                var parameter = new URLSearchParams(parameterObjekt).toString();
+																                var zielURL = 'https://www.ma-versand.de/webshop/kundenkonto?' + parameter;
+																                window.location.href = zielURL;
+																            });
+																        }
+																        var orderElements = document.getElementsByClassName('devicemanager');
+																        for (var i = 0; i < orderElements.length; i++) {
+																            orderElements[i].addEventListener('click', function(event) {
+																                event.preventDefault();
+																                var parameterObjekt = { section: 'devicemanager' };
+																                var parameter = new URLSearchParams(parameterObjekt).toString();
+																                var zielURL = 'https://www.ma-versand.de/webshop/kundenkonto?' + parameter;
+																                window.location.href = zielURL;
+																            });
+																        }
+																        var orderElements = document.getElementsByClassName('faq');
+																        for (var i = 0; i < orderElements.length; i++) {
+																            orderElements[i].addEventListener('click', function(event) {
+																                event.preventDefault();
+																                var parameterObjekt = { section: 'faq' };
+																                var parameter = new URLSearchParams(parameterObjekt).toString();
+																                var zielURL = 'https://www.ma-versand.de/webshop/kundenkonto?' + parameter;
+																                window.location.href = zielURL;
+																            });
+																        }
+	</script2>
 {% endblock %}

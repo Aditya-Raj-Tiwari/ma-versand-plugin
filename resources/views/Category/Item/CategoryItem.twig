@@ -17,35 +17,33 @@
 				</div>
 			</div>
 		</div>
-
 	{% else %}
-		{% if category.id == 67611 %}
-			<div class="category-heroshot">
-				<div class="container-max">
-					<div class="row">
-						<div class="col-12">
-							<h1>JOIN THE TEAM</h1>
-							<p>
-								Wir packen Dinge gemeinsam an, schenken unseren Mitarbeitern Freiraum
-																																																																																																																																																																																																																																																											        und Vertrauen, leben Proaktivität und treten als Team auf.  Wenn Du dich
-																																																																																																																																																																																																																																																											        in einem familiären Umfeld wohlfühlst, für Garten und E-Commerce
-																																																																																																																																																																																																																																																											        interessierst, dann geh den nächsten Schritt: Schick uns Deine Bewerbung
-																																																																																																																																																																																																																																																											        und lerne uns kennen. Wir freuen uns auf Dich!
-							</p>
-							<a href="/ueber-uns">
-								<button class="btn btn-primary">Lerne über uns</button>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-
-		{% endif %}
 		{% if category is defined and ceresConfig.item.showCategoryImage and category.id != 67611  %}
 			{% include "Ceres::Category.Item.Partials.CategoryParallaxImage" with { 'category': category } %}
 		{% endif %}
 
 		<div class="categoriegrid page-content">
+			<div class="container-fluid">
+				<div class="row mt-3">
+					{% if category.id != 67611 and facets|length == 0 %}
+						<div class="col-12">
+							<h1 class="h2 category-title mt-4 mb-5 text-center">{{ category.details[0].name }}</h1>
+						</div>
+					{% endif %}
+					{% if overrideSearchFilters | trim is empty %}
+						<item-filter-list :facet-data="{{ facets | json_encode }}">
+							{% if facets | length > 0 %}
+								<a class="btn btn-link filter-toggle">
+									<i class="fa fa-sliders default-float" aria-hidden="true"></i>
+									{{ trans("Ceres::Template.itemFilter") }}
+								</a>
+							{% endif %}
+						</item-filter-list>
+					{% else %}
+						{{ overrideSearchFilters }}
+					{% endif %}
+				</div>
+			</div>
 			<div class="container-max">
 				{% if isSearch %}
 					<div class="row mt-3">
@@ -61,28 +59,6 @@
 						</div>
 					</div>
 				{% endif %}
-				<div class="row mt-3">
-					{% if category.id != 67611 %}
-						<div class="col-12">
-							<h1 class="h2 category-title mt-4 mb-5 text-center">{{ category.details[0].name }}</h1>
-						</div>
-					{% endif %}
-
-					{% if overrideSearchFilters | trim is empty %}
-						<item-filter-list :facet-data="{{ facets | json_encode }}">
-							{% if facets | length > 0 %}
-								<a class="btn btn-link filter-toggle">
-									<i class="fa fa-sliders default-float" aria-hidden="true"></i>
-									{{ trans("Ceres::Template.itemFilter") }}
-								</a>
-							{% endif %}
-						</item-filter-list>
-					{% else %}
-						{{ overrideSearchFilters }}
-					{% endif %}
-				</div>
-
-
 				<div class="list-controls mb-5">
 					<div class="list-controls-inner p-2">
 						<div class="row w-100 d-flex">

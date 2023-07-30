@@ -1,17 +1,21 @@
 
 <template>
-  <div class="dropdown-container">
-    <!-- device dropdown -->
+  <div
+    class="dropdown-container"
+    id="seachCategoriesDropdown"
+    :class="additionalClass"
+  >
     <div
       class="dropdown"
       :class="{ open: showDropdown.device }"
       @click="toggleDropdown('device')"
+      v-if="$props.initialDeviceId === null"
     >
       <div class="dropdown-selected">
         {{
           selectedDevice
             ? selectedDevice.lang.de.name
-            : "Please select a device"
+            : "Produktkategorie wählen"
         }}
       </div>
       <transition name="slide-fade">
@@ -19,7 +23,7 @@
           <input
             v-model="deviceSearch"
             type="text"
-            placeholder="Search devices..."
+            placeholder="Produkt suchen..."
             @click.stop
           />
           <div
@@ -44,7 +48,7 @@
         {{
           selectedHersteller
             ? selectedHersteller.lang.de.name
-            : "Please select a Hersteller"
+            : "Hersteller wählen"
         }}
       </div>
       <transition name="slide-fade">
@@ -52,7 +56,7 @@
           <input
             v-model="herstellerSearch"
             type="text"
-            placeholder="Search herstellers..."
+            placeholder="Hersteller suchen..."
             @click.stop
           />
           <div
@@ -74,9 +78,7 @@
       :class="{ open: showDropdown.model, disabled: !selectedHersteller }"
     >
       <div class="dropdown-selected">
-        {{
-          selectedModel ? selectedModel.lang.de.name : "Please select a Model"
-        }}
+        {{ selectedModel ? selectedModel.lang.de.name : "Modell wählen" }}
       </div>
       <transition name="slide-fade">
         <div
@@ -86,7 +88,7 @@
           <input
             v-model="modelSearch"
             type="text"
-            placeholder="Search models..."
+            placeholder="Model suchen..."
             @click.stop
           />
           <div
@@ -105,7 +107,7 @@
       rel="noopener noreferrer"
     >
       <button class="btn btn-lg btn-primary" :disabled="!selectedModel">
-        Suche
+        Ersatzteil suchen
       </button>
     </a>
   </div>
@@ -120,6 +122,11 @@ export default {
       type: Number,
       required: false,
       default: null,
+    },
+    additionalClass: {
+      type: String,
+      required: false,
+      default: "",
     },
   },
   data() {

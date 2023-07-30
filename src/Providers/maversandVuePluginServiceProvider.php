@@ -48,6 +48,10 @@ class maversandVuePluginServiceProvider extends TemplateServiceProvider
             return false;
         }, 0);
 
+        $dispatcher->listen('IO.tpl.my-account', function (TemplateContainer $container) {
+            $container->setTemplate('maversandVuePlugin::MyAccount.MyAccountView');
+            return false;
+        }, 0);
 
         $container = pluginApp(ResultFieldTemplate::class);
         $container->setTemplate(ResultFieldTemplate::TEMPLATE_LIST_ITEM, 'maversandVuePlugin::ResultFields.ListItem');

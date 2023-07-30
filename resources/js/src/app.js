@@ -17,8 +17,10 @@ import UserLoginHandler from "./app/components/customer/login/UserLoginHandler.v
 
 import CategoryItem from "./app/components/itemList/CategoryItem.vue";
 import CategoryJobs from "./app/components/itemList/CategoryJobs.vue";
+import Orders from "./app/components/orders/Orders.vue";
 import ItemSearch from "./app/components/itemList/ItemSearch.vue";
 import SearchCategories from "./app/components/itemList/SearchCategories.vue";
+import ModalManager from "./app/components/itemList/ModalManager.vue";
 
 import CookieBar from "./app/components/pageDesign/CookieBar.vue";
 import Carousel from "./app/components/pageDesign/Carousel.vue";
@@ -115,6 +117,7 @@ export function beforeCreate(context) {
     Vue.component("coupon", () => import("./app/components/basket/Coupon.vue"));
     Vue.component("basket-list", () => import("./app/components/basket/list/BasketList.vue"));
     Vue.component("step-by-step-navigation", () => import("./app/components/category/StepByStepNavigation.vue"));
+    Vue.component("canonical-categories", () => import("./app/components/category/CanonicalCategories.vue"));
     Vue.component("google-maps-widget", () => import("./app/components/common/GoogleMaps.vue"));
     Vue.component("lazy-img", LazyImg);
     Vue.component("intersect", Intersect);
@@ -135,8 +138,10 @@ export function beforeCreate(context) {
     Vue.component("tag-list", () => import("./app/components/item/TagList.vue"));
     Vue.component("category-item", CategoryItem);
     Vue.component("category-jobs", CategoryJobs);
+    Vue.component("orders", Orders);
     Vue.component("item-search", ItemSearch);
     Vue.component("search-categories", SearchCategories);
+    Vue.component("modal-manager", ModalManager);
     Vue.component("search-suggestion-item", () => import("./app/components/itemList/SearchSuggestionItem.vue"));
     Vue.component("item-filter-list", () => import("./app/components/itemList/filter/ItemFilterList.vue"));
     Vue.component("item-filter-tag-list", () => import("./app/components/itemList/filter/ItemFilterTagList.vue"));

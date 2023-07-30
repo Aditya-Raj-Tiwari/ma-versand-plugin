@@ -41,6 +41,7 @@ Vue.component("coupon", () => import("./app/components/basket/Coupon.vue"));
 Vue.component("basket-list", () => import("./app/components/basket/list/BasketList.vue"));
 
 Vue.component("step-by-step-navigation", () => import("./app/components/category/StepByStepNavigation.vue"));
+Vue.component("canonical-categories", () => import("./app/components/category/CanonicalCategories.vue"));
 Vue.component("google-maps-widget", () => import("./app/components/common/GoogleMaps.vue"));
 import LazyImg from "./app/components/common/LazyImg.vue";
 Vue.component("lazy-img", LazyImg);
@@ -73,10 +74,13 @@ Vue.component("tag-list", () => import("./app/components/item/TagList.vue"));
 
 Vue.component("category-item", () => import("./app/components/itemList/CategoryItem.vue"));
 Vue.component("category-jobs", () => import("./app/components/itemList/CategoryJobs.vue"));
+Vue.component("orders", () => import("./app/components/orders/Orders.vue"));
 import ItemSearch from "./app/components/itemList/ItemSearch.vue";
 Vue.component("item-search", ItemSearch);
 import SearchCategories from "./app/components/itemList/SearchCategories.vue";
 Vue.component("search-categories", SearchCategories);
+import ModalManager from "./app/components/itemList/ModalManager.vue";
+Vue.component("modal-manager", ModalManager);
 Vue.component("search-suggestion-item", () => import("./app/components/itemList/SearchSuggestionItem.vue"));
 Vue.component("item-filter-list", () => import("./app/components/itemList/filter/ItemFilterList.vue"));
 Vue.component("item-filter-tag-list", () => import("./app/components/itemList/filter/ItemFilterTagList.vue"));

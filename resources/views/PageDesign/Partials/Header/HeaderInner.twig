@@ -21,7 +21,7 @@
 				</div>
 				<div class="actions-outer">
 					<div class="actions d-flex">
-						<a href="{% if services.authentication.isLoggedIn() %}{% if userObject.id | length > 0 %}/my-account?personaldata{% else %}/checkout{% endif %}{% else %}/login{% endif %}" id="loginbtn" class="position-relative text-center">
+						<a href="/my-account" id="loginbtn" class="position-relative text-center">
 							<button class="p-0" style="border: 0; background: transparent;">
 								<img src="https://cdn02.plentymarkets.com/ocqgl0v083vy/frontend/images/ma_versand_account.svg" width="28" height="28" alt="">
 							</button>
@@ -31,7 +31,7 @@
 										Mein Konto
 									</div>
 									<div v-else>
-										Gast
+										Gastkonto
 									</div>
 								{% else %}
 									Anmelden

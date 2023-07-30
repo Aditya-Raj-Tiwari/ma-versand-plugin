@@ -1,0 +1,206 @@
+{% set crossProducts = services.itemList.getItemList( "cross_selling", null, "variation.position_desc" ,10,'Accessory').documents %}
+
+<script2 type="x/template" data-component="single-item">
+	<div>
+		<div class="fromcomp">
+			<slot :getdatafield="getDataField" :getfiltereddatafield="getFilteredDataField">
+				<div class="single container-max page-content">
+					<div class="row position-relative">
+						<div class="col-12 col-md-7 mt-5">
+							<slot name="image-carousel"></slot>
+						</div>
+
+						<div class="col-12 col-md-5 mt-md-5">
+							<div
+								v-stick-in-parent>
+								<!-- START SINGLEITEM_DETAILS -->
+								<div class="producertag h6 producer text-muted" v-if="currentVariation.filter.hasManufacturer">
+									${ currentVariation.item.manufacturer.externalName }
+								</div>
+
+								<h1 class="h2 title" data-testing="item-name">
+									<span>
+										${ currentVariation | itemName }
+									</span>
+								</h1>
+
+								<div class="mb-3">
+									<span class="articlenumber small text-muted">
+										<b>${ $translate("Ceres::Template.singleItemNumber") }
+										</b>
+										<span>${ currentVariation.variation.number }</span>
+									</span>
+								</div>
+
+								<!-- Variation -->
+								<div class="mb-3" v-if="attributes.length || Object.keys(units).length">
+									<variation-select></variation-select>
+								</div>
+								<!-- /Variation -->
+
+								<!-- Item Bundle -->
+								<item-bundle v-if="currentVariation.variation.bundleType === 'bundle'" :bundle-type="currentVariation.variation.bundleType" :bundle-components="currentVariation.bundleComponents"></item-bundle>
+								<!-- /Item Bundle -->
+
+								<slot name="before-price"></slot>
+
+								<div v-if="
+																																																																																																																																																																																																																																																																																																																																																																		                  currentVariation.filter.isSalable &&
+																																																																																																																																																																																																																																																																																																																																																																		                  variationGroupedProperties.length
+																																																																																																																																																																																																																																																																																																																																																																		                ">
+									<order-property-list></order-property-list>
+								</div>
+
+								<graduated-prices></graduated-prices>
+
+								<item-price :show-cross-price="isRecommendedPriceActive"></item-price>
+
+								<slot name="after-price"></slot>
+
+								<item-availability></item-availability>
+
+								<div class="my-3">
+									<div class="w-100">
+										<slot name="before-add-to-basket"></slot>
+									</div>
+
+									<div v-if="currentVariation.item.itemType === 'set'" class="alert alert-info w-100">
+										${ $translate("Ceres::Template.singleItemSetInfo") }
+									</div>
+									<div v-else class="col-12 col-sm-7 col-md-12 col-lg-8 my-3 w-100 basket-container-single-item">
+										<add-to-basket :variation-id="currentVariation.variation.id" :is-salable="
+																																																																																																																																																																																																																																																																																																																																																																																																									                      !!currentVariation.filter &&
+																																																																																																																																																																																																																																																																																																																																																																																																									                      currentVariation.filter.isSalable
+																																																																																																																																																																																																																																																																																																																																																																																																									                    " :has-children="
+																																																																																																																																																																																																																																																																																																																																																																																																									                      !!currentVariation.filter &&
+																																																																																																																																																																																																																																																																																																																																																																																																									                      currentVariation.filter.hasActiveChildren
+																																																																																																																																																																																																																																																																																																																																																																																																									                    " :interval-quantity="
+																																																																																																																																																																																																																																																																																																																																																																																																									                      currentVariation.variation.intervalOrderQuantity || 1
+																																																																																																																																																																																																																																																																																																																																																																																																									                    " :minimum-quantity="
+																																																																																																																																																																																																																																																																																																																																																																																																									                      currentVariation.variation.minimumOrderQuantity
+																																																																																																																																																																																																																																																																																																																																																																																																									                    " :maximum-quantity="
+																																																																																																																																																																																																																																																																																																																																																																																																									                      !!currentVariation.variation.maximumOrderQuantity &&
+																																																																																																																																																																																																																																																																																																																																																																																																									                      currentVariation.variation.maximumOrderQuantity > 0
+																																																																																																																																																																																																																																																																																																																																																																																																									                        ? currentVariation.variation.maximumOrderQuantity
+																																																																																																																																																																																																																																																																																																																																																																																																									                        : null
+																																																																																																																																																																																																																																																																																																																																																																																																									                    " :order-properties="
+																																																																																																																																																																																																																																																																																																																																																																																																									                      currentVariation.properties.filter(function (prop) {
+																																																																																																																																																																																																																																																																																																																																																																																																									                        return prop.property.isOderProperty;
+																																																																																																																																																																																																																																																																																																																																																																																																									                      })
+																																																																																																																																																																																																																																																																																																																																																																																																									                    " :has-order-properties="currentVariation.hasOrderProperties" :has-required-order-property="
+																																																																																																																																																																																																																																																																																																																																																																																																									                      currentVariation.hasRequiredOrderProperty
+																																																																																																																																																																																																																																																																																																																																																																																																									                    " :use-large-scale="false" :show-quantity="true" :item-url="currentVariation | itemURL" :is-variation-selected="
+																																																																																																																																																																																																																																																																																																																																																																																																									                      isVariationSelected && currentVariation.filter.isSalable
+																																																																																																																																																																																																																																																																																																																																																																																																									                    " :has-price="currentVariation | hasItemDefaultPrice" :from-single-item="true"></add-to-basket>
+									</div>
+
+									<div class="w-100">
+										<slot name="after-add-to-basket"></slot>
+									</div>
+								</div>
+
+								<div v-if="isWishListEnabled" class="row">
+									<div class="col-12">
+										<add-to-wish-list :variation-id="currentVariation.variation.id"></add-to-wish-list>
+									</div>
+								</div>
+								<!-- ./ITEM DETAIL -->
+
+								<slot name="additional-content-after-add-to-basket"></slot>
+
+								<div class="transport-info-container mt-5 pt-2">
+									<div class="delivery-info">
+										<i class="fa fa-sharp fa-light fa-truck"></i>
+										<p>Gewöhnlich versandbereit am nächsten Werktag</p>
+									</div>
+									<div class="delivery-time-info">
+										<i class="fa fa-light fa-arrow-turn-down-left"></i>
+										<p>14 Tage Rückgaberecht</p>
+									</div>
+								</div>
+
+								<slot name="additional-content-after-vat"></slot>
+								<!-- END SINGLEITEM_DETAILS -->
+							</div>
+						</div>
+
+						<div
+							class="col-12 col-md-7">
+							<!-- ITEM DESCRIPTION -->
+							<div class="my-5">
+								<div id="accordion">
+									<div class="card" v-if="isDescriptionTabActive">
+										<div class="card-header" id="headingOne">
+											<h5 class="mb-0">
+												<button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+													${
+																																																																																																																																							                          $translate("Ceres::Template.singleItemDescription")
+																																																																																																																																							                        }
+												</button>
+											</h5>
+										</div>
+
+										<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+											<div class="card-body">
+												<div class="my-4" v-html="currentVariation.texts.description"></div>
+											</div>
+										</div>
+									</div>
+
+									<div class="card" v-if="isTechnicalDataTabActive">
+										<div class="card-header" id="headingTwo">
+											<h5 class="mb-0">
+												<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+													${
+																																																																																																																																							                          $translate("Ceres::Template.singleItemTechnicalData")
+																																																																																																																																							                        }
+												</button>
+											</h5>
+										</div>
+										<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+											<div class="card-body">
+												<div class="my-4" v-html="currentVariation.texts.technicalData"></div>
+											</div>
+										</div>
+									</div>
+
+									<div class="card">
+										<div class="card-header" id="headingThree">
+											<h5 class="mb-0">
+												<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+													${
+																																																																																																																																							                          $translate("Ceres::Template.singleItemMoreDetails")
+																																																																																																																																							                        }
+												</button>
+											</h5>
+										</div>
+										<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+											<div
+												class="card-body"><!-- Add your assessment details here -->
+											</div>
+										</div>
+									</div>
+
+									<slot name="add-detail-accordions"></slot>
+								</div>
+							</div>
+							<!-- ./ITEM DESCRIPTION -->
+						</div>
+					</div>
+
+					<slot name="item-list-container"></slot>
+					<slot name="feedback-container"></slot>
+					<div class="cross-selling">
+						{% for item in crossProducts|slice(0,10) %}
+							<div class="swiper-slide px-0">
+								<category-item :item-data="{{ item.data | json_encode }}" :decimal-count="{{ ceresConfig.item.storeSpecial }}"></category-item>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</slot>
+
+		</div>
+	</div>
+
+</script2>

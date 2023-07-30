@@ -165,7 +165,6 @@ export default {
 
       return this.facet.name;
     },
-
     ...mapState({
       selectedFacets: (state) => state.itemList.selectedFacets,
       isLoading: (state) => state.itemList.isLoading,
